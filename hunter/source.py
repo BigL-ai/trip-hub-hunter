@@ -174,7 +174,9 @@ class Source:
             sort_by=SortBy.BEST,
         )
         s = self.cfg["search"]
-        url = with_locale_params(SearchFlights.BASE_URL, s["currency"], "en", s["country"])
+        # Idioma es-419 obligatorio: desde los servidores de GitHub (EE.UU.), con "en" o sin idioma
+        # Google responde ErrorResponse 13 para este bloque (verificado oct-2026).
+        url = with_locale_params(SearchFlights.BASE_URL, s["currency"], "es-419", s["country"])
         for attempt in range(3):
             self.calls += 1
             try:
