@@ -92,6 +92,13 @@ a{color:var(--accent)}
     </div>
   </div>
 
+  <h2>Termómetro Google · últimos 60 días</h2>
+  <div class="card" id="gCard">
+    <div class="sub" id="gText" style="margin-bottom:8px"></div>
+    <div class="chart"><canvas id="gChart"></canvas></div>
+    <div class="sub" style="margin-top:8px">Dato de Google ("price insights"): ida sola y sin valija para la fecha de salida que va ganando. No es nuestro precio exacto (ida y vuelta con valija): sirve como termómetro de si el mercado de la ruta está barato o caro. La franja es el rango típico según Google.</div>
+  </div>
+
   <h2>Mejor opción hoy</h2>
   <div class="card hero">
     <div>
@@ -210,6 +217,34 @@ function signal(b, history){
   document.getElementById("timeline").innerHTML = h;
 }
 
+function thermometer(g){
+  const card = document.getElementById("gCard");
+  if(!g || !g.history || !g.history.length){ card.style.display = "none"; return; }
+  const cls = {bajo:"good", "típico":"warn", alto:"bad"}[g.level];
+  document.getElementById("gText").innerHTML =
+    `${g.route} · salida ${g.date} · hoy <b>${usd(g.current)}</b> → precio <span class="pill ${cls}">${g.level}</span> ` +
+    `(rango típico ${usd(g.typical_low)}–${usd(g.typical_high)})`;
+  const labels = g.history.map(h => `${h.date.slice(8)}/${h.date.slice(5,7)}`);
+  const flat = v => g.history.map(() => v);
+  new Chart(document.getElementById("gChart"), {
+    type: "line",
+    data: { labels, datasets: [
+      {label:"Rango típico (alto)", data:flat(g.typical_high), borderColor:"transparent", pointRadius:0, fill:false},
+      {label:"Rango típico", data:flat(g.typical_low), borderColor:"transparent", pointRadius:0,
+       backgroundColor:`color-mix(in srgb, ${css("--good")} 18%, transparent)`, fill:"-1"},
+      {label:"Precio ida (Google)", data:g.history.map(h=>h.price), borderColor:css("--s1"), backgroundColor:css("--s1"),
+       borderWidth:2, pointRadius:0, pointHoverRadius:4, tension:.2},
+    ]},
+    options: {
+      maintainAspectRatio:false, interaction:{mode:"index",intersect:false},
+      plugins:{ legend:{labels:{color:css("--muted"),boxWidth:12, filter:i=>i.text!=="Rango típico (alto)"}},
+        tooltip:{filter:i=>i.datasetIndex===2, callbacks:{label:c=>`Ida: ${usd(c.parsed.y)}`}} },
+      scales:{ x:{ticks:{color:css("--muted"),maxTicksLimit:10},grid:{color:css("--line")}},
+               y:{ticks:{color:css("--muted"),callback:v=>usd(v)},grid:{color:css("--line")}} }
+    }
+  });
+}
+
 async function load(){
   const [latest, history] = await Promise.all([
     fetch("data/latest.json",{cache:"no-store"}).then(r=>r.json()),
@@ -257,6 +292,7 @@ async function load(){
   ).join("") || `<tr><td colspan="7" class="sub">Sin combinaciones válidas hoy</td></tr>`;
 
   signal(latest.buy, history);
+  thermometer(latest.insight);
   heat(latest.single.calendar);
   document.getElementById("report").textContent = latest.report;
 

@@ -2,6 +2,7 @@
 
 Modelo: parada óptima con precio de reserva.
   🟢 COMPRAR  → el precio de hoy toca el precio de reserva del período,
+               o Google dice que la ruta está por DEBAJO de su rango típico (activo desde el día 1),
                o (pasada la fase de observación) bate el mínimo histórico,
                o llegamos a la fecha límite.
   🟡 ATENTO   → el precio está cerca del de reserva, o hay un evento de ofertas en curso/inminente.
@@ -15,7 +16,7 @@ def _d(s):
     return date.fromisoformat(s)
 
 
-def evaluate(cfg, price, prev_min, today=None):
+def evaluate(cfg, price, prev_min, today=None, insight=None):
     p = cfg["purchase"]
     today = today or date.today()
     deadline = _d(p["deadline"])
@@ -38,6 +39,10 @@ def evaluate(cfg, price, prev_min, today=None):
     elif reserve and price <= reserve:
         color = "green"
         reasons.append(f"${price:.0f} ≤ precio de reserva ${reserve} del período.")
+    elif insight and insight["level"] == "bajo":
+        color = "green"
+        reasons.append(f"Google: la ida está a ${insight['current']:.0f}, debajo de su rango típico "
+                       f"(${insight['typical_low']:.0f}–${insight['typical_high']:.0f}) → mercado barato.")
     elif today > observe_until and prev_min and price < prev_min:
         color = "green"
         reasons.append(f"Fase de observación terminada y ${price:.0f} bate el mínimo histórico (${prev_min:.0f}).")
@@ -53,6 +58,9 @@ def evaluate(cfg, price, prev_min, today=None):
         elif soon:
             color = "yellow"
             reasons.append(f"Se viene {soon[0]['name']} ({soon[0]['from']}): conviene esperar a ese pico de ofertas.")
+        if insight:
+            reasons.append(f"Google: ida a ${insight['current']:.0f}, rango típico "
+                           f"${insight['typical_low']:.0f}–${insight['typical_high']:.0f} → precio {insight['level']}.")
         if today <= observe_until:
             reasons.append(f"Fase de observación hasta {p['observe_until']}: armando baseline.")
         if avoid:

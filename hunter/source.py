@@ -154,6 +154,51 @@ class Source:
         self._cache[key] = res
         return res
 
+    def price_insight(self, orig, dest, day):
+        """'Price insights' de Google: rango de precio típico + historia de ~60 días.
+
+        fli no lo expone: viene escondido en inner[5] de la respuesta cruda.
+        Google SOLO lo devuelve para búsquedas solo-ida SIN equipaje, así que es
+        un termómetro del mercado de la ruta, no nuestro precio exacto (ida+vuelta con valija).
+        Estructura (verificada contra el cartel "Prices are currently high" de la web, oct-2026):
+          [1] precio actual · [4] / [5] rango típico (bajo / alto) · [10][0] = [[timestamp_ms, precio], ...]
+        """
+        from fli.search._urls import with_locale_params
+        from fli.search.flights import parse_first_wrb_payload
+
+        f = FlightSearchFilters(
+            trip_type=TripType.ONE_WAY,
+            passenger_info=PassengerInfo(adults=self.cfg["trip"]["adults"]),
+            flight_segments=[self._seg(orig, dest, day)],
+            stops=STOPS[self.cfg["single_ticket"]["max_stops"]],
+            sort_by=SortBy.BEST,
+        )
+        s = self.cfg["search"]
+        url = with_locale_params(SearchFlights.BASE_URL, s["currency"], "en", s["country"])
+        for attempt in range(3):
+            self.calls += 1
+            try:
+                r = self.flights.client.post(url=url, data=f"f.req={f.encode()}", impersonate="chrome")
+                pi = parse_first_wrb_payload(r.text)[5]
+                if pi:
+                    hist = pi[10][0] if len(pi) > 10 and pi[10] else []
+                    current, low, high = pi[1][1], pi[4][1], pi[5][1]
+                    return {
+                        "route": f"{'/'.join(orig)} → {'/'.join(dest)}",
+                        "date": str(day),
+                        "current": current,
+                        "typical_low": low,
+                        "typical_high": high,
+                        "level": "bajo" if current < low else "alto" if current > high else "típico",
+                        "history": [
+                            {"date": str(date.fromtimestamp(ms / 1000)), "price": p} for ms, p in hist
+                        ],
+                    }
+            except Exception as e:  # el bloque es no oficial: si cambia, no rompe la corrida
+                log.warning("Price insight falló (intento %d): %s", attempt + 1, e)
+            time.sleep(1.5 * (attempt + 1))
+        return None
+
     def one_way(self, orig, dest, day, max_stops=0):
         """Solo ida. Devuelve [{itin, price}] ordenado por precio."""
         key = ("ow", tuple(orig), tuple(dest), str(day), max_stops)

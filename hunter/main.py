@@ -105,12 +105,18 @@ def main():
 
     now = datetime.now(timezone.utc).isoformat(timespec="minutes")
     w, bs, bp = result["winner"], result["best_single"], result["best_split"]
-    signal = buy.evaluate(cfg, w and w["price"], prev_best) if "purchase" in cfg else None
+    # Termómetro de Google para la fecha de salida que va ganando (1 request extra)
+    insight = None
+    if w:
+        insight = src.price_insight(cfg["trip"]["origin"], cfg["trip"]["destination"], w["dep"])
+        logging.info("Price insight: %s", insight and {k: v for k, v in insight.items() if k != "history"})
+    signal = buy.evaluate(cfg, w and w["price"], prev_best, insight=insight) if "purchase" in cfg else None
     prev_color = history[-1].get("signal") if history else None
     # Una fila por día: si se corre a mano dos veces el mismo día, gana la última.
     history = [h for h in history if h["run_at"][:10] != now[:10]]
     history.append({
         "signal": signal and signal["color"],
+        "google_level": insight and insight["level"],
         "run_at": now,
         "winner_price": w and w["price"],
         "winner_label": w and (f"vía {w['hub']}" if w["type"] == "split" else "billete único"),
@@ -132,7 +138,7 @@ def main():
 
     DATA.mkdir(parents=True, exist_ok=True)
     LATEST.write_text(json.dumps({"run_at": now, "trip": cfg["trip"], "split_cfg": cfg["split"],
-                                  "requests": src.calls, "report": text, "buy": signal, **result},
+                                  "requests": src.calls, "report": text, "buy": signal, "insight": insight, **result},
                                  ensure_ascii=False, indent=1), encoding="utf-8")
     HISTORY.write_text(json.dumps(history, ensure_ascii=False, indent=1), encoding="utf-8")
     logging.info("Listo. %d requests a Google.", src.calls)
