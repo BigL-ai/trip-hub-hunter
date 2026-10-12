@@ -8,6 +8,7 @@ Tracker diario de vuelos: compara **billete único** vs. **ruta combinada por hu
 - El calendario de Google ignora el filtro de escala (con filtro devuelve ~1 fecha): se usa sin filtro y la regla se valida en el detalle.
 - No correr dos `hunter.main` en paralelo: Google limita y los hubs vuelven vacíos (`hub_status: "error"`).
 - Salida: `docs/data/latest.json` + `history.json` → `docs/index.html` (GitHub Pages).
-- Runner activo: Programador de tareas de Windows, tarea "Trip Hub Hunter" 08:00 diaria (StartWhenAvailable) → `run_hunt.bat` → log en `logs/hunt.log`. Solo corre con la PC prendida.
-- `.github/workflows/daily.yml` existe pero NO está activo (la carpeta no es repo git aún). ~100–200 requests a Google por corrida, ~10 min.
+- Runner: GitHub Actions `.github/workflows/daily.yml` 08:00 ART en repo público github.com/BigL-ai/trip-hub-hunter; el bot commitea `docs/data` ("hunt: YYYY-MM-DD") → hacer `git pull` antes de tocar algo local. ~125 requests a Google, ~10 min.
+- Dashboard online: https://bigl-ai.github.io/trip-hub-hunter/ (GitHub Pages sobre `/docs`).
+- La tarea local de Windows fue borrada; `run_hunt.bat` queda solo para correr a mano.
 - Correr local: `.venv/Scripts/python -m hunter.main`; dashboard: `python -m http.server -d docs`.
