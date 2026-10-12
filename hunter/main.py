@@ -96,6 +96,15 @@ def main():
 
     src = Source(cfg)
     result = run(src, cfg)
+
+    # Guarda de calidad: si Google nos frenó, el calendario del billete único vuelve VACÍO
+    # (sin error). Publicar eso pisaría el dato bueno con una "mejor opción" falsa.
+    # → no se escribe nada, queda el último dato bueno, y el workflow falla (llega mail).
+    if not result["single"]["calendar"]:
+        logging.error("Corrida degradada: calendario del billete único vacío (¿Google limitó las búsquedas?). "
+                      "No se publican datos. %d requests.", src.calls)
+        return 2
+
     add_links(result, cfg)
 
     history = json.loads(HISTORY.read_text(encoding="utf-8")) if HISTORY.exists() else []

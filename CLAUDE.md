@@ -8,6 +8,7 @@ Tracker diario de vuelos: compara **billete único** vs. **ruta combinada por hu
 - "Price insights" de Google (`Source.price_insight`; en runners de GitHub: idioma es-419 obligatorio y reintentos con espera larga, Google frena el bloque tras ráfagas): fli no lo expone, se lee de `inner[5]` crudo ([1] actual, [4]/[5] rango típico, [10][0] historia ~60 días). Google SOLO lo da para solo-ida SIN valija → es termómetro de mercado, no nuestro precio. Semáforo: verde si nivel "bajo".
 - El calendario de Google ignora el filtro de escala (con filtro devuelve ~1 fecha): se usa sin filtro y la regla se valida en el detalle.
 - No correr dos `hunter.main` en paralelo: Google limita y los hubs vuelven vacíos (`hub_status: "error"`).
+- Guarda de calidad: si el calendario del billete único vuelve vacío (Google limitó), `main` sale con código 2 sin escribir datos. No disparar muchas corridas seguidas: Google frena la IP de los runners.
 - Salida: `docs/data/latest.json` + `history.json` → `docs/index.html` (GitHub Pages).
 - Runner: GitHub Actions `.github/workflows/daily.yml` 08:00 ART en repo público github.com/BigL-ai/trip-hub-hunter; el bot commitea `docs/data` ("hunt: YYYY-MM-DD") → hacer `git pull` antes de tocar algo local. ~125 requests a Google, ~10 min.
 - Dashboard online: https://bigl-ai.github.io/trip-hub-hunter/ (GitHub Pages sobre `/docs`).

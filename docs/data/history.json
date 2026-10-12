@@ -18,14 +18,14 @@
  {
   "signal": "red",
   "google_level": null,
-  "run_at": "2026-10-12T14:24+00:00",
-  "winner_price": 1716.0,
-  "winner_label": "vía PTY",
-  "single_price": null,
-  "split_price": 1716.0,
-  "split_hub": "PTY",
+  "run_at": "2026-10-12T14:03+00:00",
+  "winner_price": 762.0,
+  "winner_label": "billete único",
+  "single_price": 762.0,
+  "split_price": 1214.0,
+  "split_hub": "MIA",
   "by_hub": {
-   "PTY": 1716.0,
+   "MIA": 1214.0,
    "ATL": 2051.0
   }
  }
