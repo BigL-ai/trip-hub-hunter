@@ -34,8 +34,8 @@ jobs:
               src.one_way(["MIA"], ["IAD"], d)
               src._cache.clear()
           print("búsquedas hechas:", src.calls)
-          probe("sesión compartida, tras 40 búsquedas", src.flights.client.post)
-          fresh = cr.Session(); fresh.headers.update({"content-type": "application/x-www-form-urlencoded;charset=UTF-8"})
-          probe("sesión NUEVA, tras 40 búsquedas", fresh.post)
-          probe("sesión compartida otra vez", src.flights.client.post)
+          import logging, time; logging.basicConfig(level=logging.WARNING)
+          t0 = time.time()
+          i = src.price_insight(t["origin"], t["destination"], "2027-03-01")
+          print(f"price_insight tras ráfaga: {'OK' if i else 'FALLA'} en {time.time()-t0:.0f}s", i and (i["current"], i["level"], len(i["history"])))
           PY

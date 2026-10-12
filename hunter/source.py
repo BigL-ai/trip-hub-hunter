@@ -177,7 +177,10 @@ class Source:
         # Idioma es-419 obligatorio: desde los servidores de GitHub (EE.UU.), con "en" o sin idioma
         # Google responde ErrorResponse 13 para este bloque (verificado oct-2026).
         url = with_locale_params(SearchFlights.BASE_URL, s["currency"], "es-419", s["country"])
-        for attempt in range(3):
+        # Después de una ráfaga de búsquedas, Google frena este bloque un rato (ErrorResponse 13):
+        # por eso las esperas entre intentos son largas (verificado en GitHub, oct-2026).
+        for attempt, wait in enumerate([0, 10, 20, 40, 60]):
+            time.sleep(wait)
             self.calls += 1
             try:
                 r = self.flights.client.post(url=url, data=f"f.req={f.encode()}", impersonate="chrome")
@@ -196,9 +199,9 @@ class Source:
                             {"date": str(date.fromtimestamp(ms / 1000)), "price": p} for ms, p in hist
                         ],
                     }
+                log.warning("Price insight sin datos (intento %d): %s", attempt + 1, r.text[:90].replace(chr(10), " "))
             except Exception as e:  # el bloque es no oficial: si cambia, no rompe la corrida
                 log.warning("Price insight falló (intento %d): %s", attempt + 1, e)
-            time.sleep(1.5 * (attempt + 1))
         return None
 
     def one_way(self, orig, dest, day, max_stops=0):
