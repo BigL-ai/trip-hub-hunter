@@ -17,7 +17,8 @@
  },
  {
   "signal": "red",
-  "run_at": "2026-10-12T13:37+00:00",
+  "google_level": null,
+  "run_at": "2026-10-12T14:03+00:00",
   "winner_price": 762.0,
   "winner_label": "billete único",
   "single_price": 762.0,
@@ -25,10 +26,7 @@
   "split_hub": "MIA",
   "by_hub": {
    "MIA": 1214.0,
-   "NYC": 1650.0,
-   "PTY": 1716.0,
-   "BOG": 1814.0,
-   "ATL": 2120.0
+   "ATL": 2051.0
   }
  }
 ]
