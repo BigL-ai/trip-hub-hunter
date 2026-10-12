@@ -1,0 +1,67 @@
+# ==========================================================
+#  Flight Deal & Hub Hunter — viaje activo
+#  Para otro viaje: cambiá este archivo, el código no se toca.
+# ==========================================================
+trip:
+  name: "BUE ⇄ Washington — Mar/Abr 2027"
+  origin: [EZE, AEP]                 # aeropuertos de origen (se buscan juntos)
+  destination: [IAD, DCA, BWI]       # aeropuertos de destino
+  departure_window: ["2027-03-01", "2027-04-30"]   # ventana para la fecha de SALIDA (máx 61 días)
+  durations: [10, 12, 15]            # días en destino a evaluar (cada uno = 1 barrido de calendario)
+  adults: 1
+
+baggage:
+  checked_bags: 1                    # valija 23kg en bodega
+  carry_on: true                     # bolso de mano
+  # Google suma el equipaje en el precio, pero para algunas low-cost no tiene el dato.
+  # Para esas aerolíneas sumamos un monto fijo POR TRAMO (USD). Ajustalo si ves algo raro.
+  manual_fee_per_leg_usd:
+    F9: 75    # Frontier
+    NK: 70    # Spirit
+    FO: 45    # Flybondi
+    JA: 45    # JetSMART
+    P5: 50    # Wingo
+
+single_ticket:                       # Modalidad estándar
+  max_stops: 1
+  layover_min_minutes: 90            # 1h30
+  layover_max_minutes: 480           # 8h
+
+split:                               # Modalidad combinada / hub-hopping
+  min_saving_usd: 150                # umbral para que valga la pena billetes separados
+  min_connection_hours: 4            # margen mínimo en el hub (migraciones + re-despacho)
+  max_connection_hours: 28           # hasta 1 noche de stopover voluntario
+  hubs:                              # cada tramo debe ser DIRECTO (el hub ya es la escala)
+    MIA: [MIA]
+    FLL: [FLL]
+    MCO: [MCO]
+    ATL: [ATL]
+    NYC: [JFK, EWR]
+    PTY: [PTY]
+    BOG: [BOG]
+    MDE: [MDE]
+
+search:
+  currency: USD
+  country: AR                        # punto de venta Argentina (precio como si compraras desde acá)
+  top_date_pairs: 6                  # cuántas combinaciones de fechas baratas se miran en detalle
+  top_date_pairs_per_hub: 2
+  top_n_outbound: 5                  # cuántas idas expande Google para armar ida+vuelta
+
+# ==========================================================
+#  Semáforo de compra (parada óptima con precio de reserva)
+# ==========================================================
+purchase:
+  observe_until: "2026-11-21"        # fase de observación (~37% de la ventana): solo se compra si toca el precio de reserva
+  deadline: "2027-01-31"             # después de esta fecha: comprar lo mejor disponible
+  reserve_prices:                    # "comprá si el precio total con valija es ≤ max_usd" (vale hasta la fecha 'until')
+    - {until: "2026-11-04", max_usd: 680}   # hasta CyberMonday AR
+    - {until: "2027-01-15", max_usd: 700}
+    - {until: "2027-01-31", max_usd: 762}
+  yellow_margin_pct: 5               # amarillo si el precio está a ≤5% del precio de reserva
+  events:                            # picos de oferta: amarillo si faltan ≤7 días o están en curso
+    - {name: "CyberMonday Argentina", from: "2026-11-02", to: "2026-11-04"}
+    - {name: "Black Friday / Cyber Monday EE.UU.", from: "2026-11-27", to: "2026-12-01"}
+    - {name: "Ofertas post-fiestas", from: "2027-01-05", to: "2027-01-20"}
+  avoid:                             # períodos malos para comprar (poca oferta promocional)
+    - {name: "Fiestas", from: "2026-12-15", to: "2027-01-04"}

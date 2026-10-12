@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hub Hunter</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#f6f5f2; --card:#ffffff; --ink:#1c1c1a; --muted:#6b6a65; --line:#e3e1db;
+  --accent:#2f5bd3; --good:#1f8a4c; --bad:#b4442f; --warn:#a86b00;
+  --s1:#2f5bd3; --s2:#d07a1f; --s3:#1f8a4c;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141413; --card:#1e1e1c; --ink:#ecebe6; --muted:#9d9b94; --line:#33322e;
+    --accent:#7d9cf0; --good:#5cc489; --bad:#e2846f; --warn:#e0a93f;
+    --s1:#7d9cf0; --s2:#e8a15a; --s3:#5cc489;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:22px;margin:0}
+h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:32px 0 12px}
+.sub{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.hero{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between}
+.big{font-size:44px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .v{font-size:26px;font-weight:650;font-variant-numeric:tabular-nums}
+.kpi .l{color:var(--muted);font-size:13px}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid currentColor}
+.good{color:var(--good)} .bad{color:var(--bad)} .warn{color:var(--warn)}
+pre.report{white-space:pre-wrap;font:13px/1.5 ui-monospace,Consolas,monospace;margin:0}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);font-size:14px}
+th{color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.scroll{overflow-x:auto}
+.legs{margin:6px 0 0;padding:0;list-style:none}
+.legs li{padding:4px 0;font-size:14px}
+.wait{color:var(--warn);font-size:13px;padding-left:12px}
+a{color:var(--accent)}
+.heat{display:grid;gap:2px;font-size:11px}
+.heat div{padding:4px 2px;text-align:center;border-radius:3px;font-variant-numeric:tabular-nums}
+.heat .h{color:var(--muted);background:none}
+.chart{position:relative;height:260px}
+.signal{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.lights{display:flex;flex-direction:column;gap:6px;padding:8px;border-radius:14px;background:var(--ink)}
+.lights span{width:22px;height:22px;border-radius:50%;background:color-mix(in srgb,var(--card) 25%,transparent);opacity:.35}
+.lights span.on{opacity:1;box-shadow:0 0 12px currentColor}
+.lights .r.on{background:var(--bad);color:var(--bad)} .lights .y.on{background:var(--warn);color:var(--warn)} .lights .g.on{background:var(--good);color:var(--good)}
+.sig-body{flex:1;min-width:240px}
+.sig-label{font-size:28px;font-weight:700;letter-spacing:.02em}
+.sig-reasons{margin:6px 0 0;padding-left:18px;font-size:14px}
+.countdown{text-align:center;min-width:120px}
+.countdown .v{font-size:34px;font-weight:700;font-variant-numeric:tabular-nums}
+.timeline{position:relative;height:56px;margin:18px 4px 4px}
+.timeline .bar{position:absolute;top:22px;left:0;right:0;height:8px;border-radius:4px;background:var(--line)}
+.timeline .seg{position:absolute;top:22px;height:8px;border-radius:4px}
+.timeline .seg.ev{background:var(--good)} .timeline .seg.av{background:var(--bad);opacity:.6} .timeline .seg.obs{background:var(--accent);opacity:.35}
+.timeline .today{position:absolute;top:12px;width:2px;height:28px;background:var(--ink)}
+.timeline .lbl{position:absolute;font-size:11px;color:var(--muted);white-space:nowrap;transform:translateX(-50%)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:4px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="title">Hub Hunter</h1>
+    <div class="sub" id="meta">Cargando…</div>
+  </header>
+
+  <h2>¿Compro hoy?</h2>
+  <div class="card" id="sigCard">
+    <div class="signal">
+      <div class="lights"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="sig-body">
+        <div class="sig-label" id="sigLabel">—</div>
+        <ul class="sig-reasons" id="sigReasons"></ul>
+        <div class="sub" id="sigReserve" style="margin-top:6px"></div>
+      </div>
+      <div class="countdown"><div class="v" id="sigDays">—</div><div class="sub">días a la fecha límite</div><div class="sub" id="sigDeadline"></div></div>
+    </div>
+    <div class="timeline" id="timeline"></div>
+    <div class="legend">
+      <span><i style="background:var(--accent);opacity:.35"></i>Observación</span>
+      <span><i style="background:var(--good)"></i>Eventos de oferta</span>
+      <span><i style="background:var(--bad);opacity:.6"></i>Evitar comprar</span>
+      <span><i style="background:var(--ink)"></i>Hoy</span>
+    </div>
+  </div>
+
+  <h2>Mejor opción hoy</h2>
+  <div class="card hero">
+    <div>
+      <div class="big" id="winPrice">—</div>
+      <div id="winLabel" class="sub"></div>
+    </div>
+    <div id="verdict"></div>
+  </div>
+
+  <div class="grid" style="margin-top:12px">
+    <div class="card kpi"><div class="l">Billete único (≤1 escala, 1h30–8h)</div><div class="v" id="kSingle">—</div><div class="sub" id="kSingleSub"></div></div>
+    <div class="card kpi"><div class="l">Mejor combinada por hub</div><div class="v" id="kSplit">—</div><div class="sub" id="kSplitSub"></div></div>
+    <div class="card kpi"><div class="l">Ahorro split vs. único</div><div class="v" id="kSave">—</div><div class="sub" id="kSaveSub"></div></div>
+    <div class="card kpi"><div class="l">Mínimo histórico</div><div class="v" id="kMin">—</div><div class="sub" id="kMinSub"></div></div>
+  </div>
+
+  <h2>Evolución diaria</h2>
+  <div class="card"><div class="chart"><canvas id="trend"></canvas></div></div>
+
+  <h2>Itinerarios</h2>
+  <div class="grid" id="itins"></div>
+
+  <h2>Combinadas por hub</h2>
+  <div class="card scroll"><table id="hubs"><thead><tr><th>Hub</th><th>Total</th><th>vs. único</th><th>Fechas</th><th>Espera ida</th><th>Espera vuelta</th><th>Billetes</th></tr></thead><tbody></tbody></table></div>
+
+  <h2>Calendario billete único (precio por fecha de salida)</h2>
+  <div class="card scroll"><div class="heat" id="heat"></div><div class="sub" style="margin-top:8px">Precio "desde" de Google (incluye valija 23kg). Ojo: el calendario no aplica la regla de escala 1h30–8h; eso se valida en el detalle de arriba. Más verde = más barato.</div></div>
+
+  <h2>Reporte del día</h2>
+  <div class="card"><pre class="report" id="report"></pre></div>
+</main>
+
+<script>
+const usd = v => v == null ? "—" : (v < 0 ? "-$" : "$") + Math.abs(Math.round(v)).toLocaleString("es-AR");
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const hm = s => s.slice(5).replace("T"," ");
+
+function legsHtml(legs){
+  return legs.map(l => `<li>${l.from} → ${l.to} · <b>${l.flight}</b> · ${hm(l.dep)} → ${hm(l.arr)}</li>`).join("");
+}
+function itinCard(title, o){
+  if(!o) return `<div class="card"><b>${title}</b><div class="sub">Sin resultados</div></div>`;
+  const wOut = o.out.wait_h ? `<li class="wait">⏱ ${o.out.wait_h} h de conexión en el hub (billetes separados)</li>` : "";
+  const wBack = o.back.wait_h ? `<li class="wait">⏱ ${o.back.wait_h} h de conexión en el hub (billetes separados)</li>` : "";
+  const outLegs = o.out.legs, backLegs = o.back.legs;
+  const outHtml = o.type==="split" ? legsHtml(outLegs.slice(0,1)) + wOut + legsHtml(outLegs.slice(1)) : legsHtml(outLegs);
+  const backHtml = o.type==="split" ? legsHtml(backLegs.slice(0,1)) + wBack + legsHtml(backLegs.slice(1)) : legsHtml(backLegs);
+  const tickets = o.tickets ? `<div class="sub" style="margin-top:8px">${o.tickets.map(t=>`${t.label}: ${usd(t.price)}`).join(" · ")}</div>` : "";
+  const links = (o.links||[]).map((u,i)=>`<a href="${u}" target="_blank" rel="noopener">${o.links.length>1?"Billete "+(i+1):"Ver en Google Flights"}</a>`).join(" · ");
+  return `<div class="card"><b>${title}</b> — <span class="kpi"><b>${usd(o.price)}</b></span>
+    <div class="sub">${o.dep} → ${o.ret}</div>
+    <div style="margin-top:8px"><b>Ida</b><ul class="legs">${outHtml}</ul></div>
+    <div style="margin-top:6px"><b>Vuelta</b><ul class="legs">${backHtml}</ul></div>
+    ${tickets}<div style="margin-top:8px">${links}</div></div>`;
+}
+
+function heat(cal){
+  const el = document.getElementById("heat");
+  if(!cal || !cal.length){ el.textContent = "Sin datos"; return; }
+  const days = [...new Set(cal.map(c=>c.days))].sort((a,b)=>a-b);
+  const deps = [...new Set(cal.map(c=>c.dep))].sort();
+  const prices = cal.map(c=>c.price), lo = Math.min(...prices), hi = Math.max(...prices);
+  const map = {}; cal.forEach(c => map[c.days+"|"+c.dep] = c.price);
+  el.style.gridTemplateColumns = `56px repeat(${deps.length}, minmax(34px,1fr))`;
+  let h = `<div class="h"></div>` + deps.map(d=>`<div class="h">${d.slice(8)}/${d.slice(5,7)}</div>`).join("");
+  for(const d of days){
+    h += `<div class="h">${d} días</div>`;
+    for(const dep of deps){
+      const p = map[d+"|"+dep];
+      if(p==null){ h += `<div></div>`; continue; }
+      const t = hi===lo ? 0 : (p-lo)/(hi-lo);           // 0 barato → 1 caro
+      const bg = `color-mix(in srgb, ${css("--good")} ${Math.round((1-t)*70)}%, ${css("--card")})`;
+      h += `<div style="background:${bg}" title="Salida ${dep}, ${d} días: ${usd(p)}">${Math.round(p)}</div>`;
+    }
+  }
+  el.innerHTML = h;
+}
+
+function signal(b, history){
+  const card = document.getElementById("sigCard");
+  if(!b){ card.style.display = "none"; return; }
+  card.querySelector(".lights ." + {red:"r",yellow:"y",green:"g"}[b.color]).classList.add("on");
+  const lab = document.getElementById("sigLabel");
+  lab.textContent = b.label;
+  lab.className = "sig-label " + {red:"bad",yellow:"warn",green:"good"}[b.color];
+  document.getElementById("sigReasons").innerHTML = b.reasons.map(r=>`<li>${r}</li>`).join("");
+  const ne = b.next_event ? ` · Próximo evento: ${b.next_event.name} (${b.next_event.from})` : "";
+  document.getElementById("sigReserve").textContent =
+    `Precio de reserva hoy: ${usd(b.reserve)} · Precio actual: ${usd(b.price)}` + ne;
+  document.getElementById("sigDays").textContent = Math.max(b.days_to_deadline, 0);
+  document.getElementById("sigDeadline").textContent = b.deadline;
+
+  // Línea de tiempo: desde la primera corrida hasta la fecha límite
+  const D = s => new Date(s + "T12:00:00");
+  const start = D(history[0].run_at.slice(0,10)), end = D(b.deadline), span = end - start;
+  const pos = s => Math.min(100, Math.max(0, (D(s) - start) / span * 100));
+  const seg = (from, to, cls, title) =>
+    `<div class="seg ${cls}" title="${title}" style="left:${pos(from)}%;width:${Math.max(pos(to)-pos(from),0.8)}%"></div>`;
+  const today = new Date().toISOString().slice(0,10);
+  let h = `<div class="bar"></div>`;
+  h += seg(history[0].run_at.slice(0,10), b.observe_until, "obs", "Fase de observación");
+  b.avoid.forEach(a => h += seg(a.from, a.to, "av", a.name));
+  b.events.forEach(e => h += seg(e.from, e.to, "ev", `${e.name} (${e.from} → ${e.to})`));
+  h += `<div class="today" style="left:${pos(today)}%" title="Hoy"></div>`;
+  // Etiquetas: precio de reserva por tramo arriba, fechas abajo
+  let prev = history[0].run_at.slice(0,10);
+  b.reserve_prices.forEach(r => {
+    const mid = (pos(prev) + pos(r.until)) / 2;
+    h += `<div class="lbl" style="left:${mid}%;top:0">≤ ${usd(r.max_usd)}</div>`;
+    prev = r.until;
+  });
+  const fmt = s => `${s.slice(8)}/${s.slice(5,7)}`;
+  h += `<div class="lbl" style="left:2%;top:38px">${fmt(history[0].run_at.slice(0,10))}</div>`;
+  b.events.forEach(e => h += `<div class="lbl" style="left:${pos(e.from)}%;top:38px">${fmt(e.from)}</div>`);
+  h += `<div class="lbl" style="left:97%;top:38px">${fmt(b.deadline)}</div>`;
+  document.getElementById("timeline").innerHTML = h;
+}
+
+async function load(){
+  const [latest, history] = await Promise.all([
+    fetch("data/latest.json",{cache:"no-store"}).then(r=>r.json()),
+    fetch("data/history.json",{cache:"no-store"}).then(r=>r.json()),
+  ]);
+  const t = latest.trip;
+  document.getElementById("title").textContent = t.name;
+  document.getElementById("meta").textContent =
+    `Última corrida: ${new Date(latest.run_at).toLocaleString("es-AR",{hour12:false,dateStyle:"short",timeStyle:"short"})} · ${latest.requests} búsquedas · salida ${t.departure_window[0]} a ${t.departure_window[1]} · ${t.durations.join("/")} días · carry-on + 23kg`;
+
+  const w = latest.winner, bs = latest.best_single, bp = latest.best_split;
+  document.getElementById("winPrice").textContent = w ? usd(w.price) + " USD" : "—";
+  document.getElementById("winLabel").textContent = w ? (w.type==="split" ? `Ruta combinada vía ${w.hub}` : `Billete único · ${w.out.legs[0].airline}`) + ` · ${w.dep} → ${w.ret}` : "";
+
+  const histMin = Math.min(...history.map(h=>h.winner_price).filter(Boolean));
+  const isNewMin = history.length===1 || (w && w.price <= histMin && history.slice(0,-1).every(h=>!h.winner_price || h.winner_price > w.price));
+  document.getElementById("verdict").innerHTML = isNewMin
+    ? `<span class="pill good">🚨 Nuevo mínimo</span>` : `<span class="pill warn">Monitoreo activo · sin cambios</span>`;
+
+  document.getElementById("kSingle").textContent = usd(bs?.price);
+  document.getElementById("kSingleSub").textContent = bs ? `${bs.out.legs.map(l=>l.airline).join("/")} · ${bs.dep} → ${bs.ret}` : "";
+  document.getElementById("kSplit").textContent = usd(bp?.price);
+  document.getElementById("kSplitSub").textContent = bp ? `vía ${bp.hub} · ${bp.dep} → ${bp.ret}` : "";
+  const sv = latest.split_saving, th = latest.split_threshold;
+  const kSave = document.getElementById("kSave");
+  kSave.textContent = sv==null ? "—" : usd(sv);
+  kSave.className = "v " + (sv==null ? "" : sv >= th ? "good" : "bad");
+  document.getElementById("kSaveSub").textContent = `Umbral para split: ${usd(th)}`;
+  document.getElementById("kMin").textContent = usd(histMin);
+  const minRun = history.find(h=>h.winner_price===histMin);
+  document.getElementById("kMinSub").textContent = minRun ? `${minRun.winner_label} · ${new Date(minRun.run_at).toLocaleDateString("es-AR")}` : "";
+
+  document.getElementById("itins").innerHTML =
+    itinCard("Billete único", bs) + itinCard(bp ? `Combinada vía ${bp.hub}` : "Combinada", bp);
+
+  const tb = document.querySelector("#hubs tbody");
+  tb.innerHTML = latest.split.map(o=>{
+    const d = bs ? o.price - bs.price : null;
+    return `<tr><td><b>${o.hub}</b></td><td>${usd(o.price)}</td>
+      <td class="${d==null?"":d<=-th?"good":d<0?"warn":"bad"}">${d==null?"—":(d>0?"+":"")+usd(d)}</td>
+      <td>${o.dep} → ${o.ret}</td><td>${o.out.wait_h} h</td><td>${o.back.wait_h} h</td>
+      <td>${(o.links||[]).map((u,i)=>`<a href="${u}" target="_blank" rel="noopener">${i+1}</a>`).join(" ")}</td></tr>`;
+  }).join("") + Object.entries(latest.hub_status || {}).filter(([,s]) => s !== "ok").map(([hub,s]) =>
+    `<tr><td><b>${hub}</b></td><td colspan="6" class="${s==="error"?"warn":"sub"}">${s==="error" ? "⚠ Error de Google hoy: sin dato (no se descartó por precio)" : "Sin combinación válida (no hay directos o no cierran las conexiones)"}</td></tr>`
+  ).join("") || `<tr><td colspan="7" class="sub">Sin combinaciones válidas hoy</td></tr>`;
+
+  signal(latest.buy, history);
+  heat(latest.single.calendar);
+  document.getElementById("report").textContent = latest.report;
+
+  new Chart(document.getElementById("trend"), {
+    type: "line",
+    data: {
+      labels: history.map(h=>new Date(h.run_at).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit"})),
+      datasets: [
+        {label:"Mejor opción", data:history.map(h=>h.winner_price), borderColor:css("--s1"), backgroundColor:css("--s1"), borderWidth:2.5, tension:.25},
+        {label:"Billete único", data:history.map(h=>h.single_price), borderColor:css("--s2"), backgroundColor:css("--s2"), borderWidth:1.5, borderDash:[4,3], tension:.25},
+        {label:"Mejor combinada", data:history.map(h=>h.split_price), borderColor:css("--s3"), backgroundColor:css("--s3"), borderWidth:1.5, borderDash:[4,3], tension:.25},
+      ]
+    },
+    options: {
+      maintainAspectRatio:false, interaction:{mode:"index",intersect:false},
+      plugins:{legend:{labels:{color:css("--muted"),boxWidth:12}}, tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${usd(c.parsed.y)}`}}},
+      scales:{x:{ticks:{color:css("--muted")},grid:{color:css("--line")}}, y:{ticks:{color:css("--muted"),callback:v=>usd(v)},grid:{color:css("--line")}}}
+    }
+  });
+}
+load().catch(e => { document.getElementById("meta").textContent = "No pude leer data/*.json — corré primero: python -m hunter.main (" + e + ")"; });
+</script>
+</body>
+</html>
