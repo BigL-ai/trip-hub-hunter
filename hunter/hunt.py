@@ -55,6 +55,10 @@ def hunt_single(src, cfg):
         st["max_stops"], cfg["search"]["top_date_pairs"],
     )
     log.info("Billete único — fechas candidatas: %s", pairs)
+    # Termómetro de Google: se pide ACÁ, con pocas búsquedas hechas. Al final de la corrida
+    # (tras ~110 búsquedas) Google lo rechaza siempre desde los servidores de GitHub.
+    insight = src.price_insight(t["origin"], t["destination"], pairs[0]["dep"]) if pairs else None
+    log.info("Price insight: %s", insight and {k: v for k, v in insight.items() if k != "history"})
     options = []
     for p in pairs:
         res = src.round_trip(
@@ -67,7 +71,7 @@ def hunt_single(src, cfg):
                             "price": r["price"], "out": r["out"], "back": r["back"],
                             "calendar_price": p["price"]})
     options.sort(key=lambda o: o["price"])
-    return {"date_pairs": pairs, "calendar": calendar, "options": options}
+    return {"date_pairs": pairs, "calendar": calendar, "options": options, "insight": insight}
 
 
 # ---------------------------------------------------------------- ruta combinada

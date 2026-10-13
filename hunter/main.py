@@ -114,11 +114,7 @@ def main():
 
     now = datetime.now(timezone.utc).isoformat(timespec="minutes")
     w, bs, bp = result["winner"], result["best_single"], result["best_split"]
-    # Termómetro de Google para la fecha de salida que va ganando (1 request extra)
-    insight = None
-    if w:
-        insight = src.price_insight(cfg["trip"]["origin"], cfg["trip"]["destination"], w["dep"])
-        logging.info("Price insight: %s", insight and {k: v for k, v in insight.items() if k != "history"})
+    insight = result["single"].get("insight")  # termómetro de Google (se pide al inicio, ver hunt.py)
     signal = buy.evaluate(cfg, w and w["price"], prev_best, insight=insight) if "purchase" in cfg else None
     prev_color = history[-1].get("signal") if history else None
     # Una fila por día: si se corre a mano dos veces el mismo día, gana la última.
