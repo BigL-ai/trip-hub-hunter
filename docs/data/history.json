@@ -28,5 +28,20 @@
    "MIA": 1214.0,
    "ATL": 2051.0
   }
+ },
+ {
+  "signal": "red",
+  "google_level": null,
+  "run_at": "2026-10-13T17:57+00:00",
+  "winner_price": 762.0,
+  "winner_label": "billete único",
+  "single_price": 762.0,
+  "split_price": 1203.0,
+  "split_hub": "MIA",
+  "by_hub": {
+   "MIA": 1203.0,
+   "NYC": 1638.0,
+   "ATL": 2050.0
+  }
  }
 ]
