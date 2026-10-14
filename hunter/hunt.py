@@ -10,6 +10,7 @@ Flujo:
 """
 
 import logging
+import time
 from datetime import date, datetime, timedelta
 
 log = logging.getLogger(__name__)
@@ -155,7 +156,10 @@ def hunt_split(src, cfg):
     Estado: "ok" | "sin vuelos" (no hay combinación válida) | "error" (Google falló:
     el hub NO se descartó por precio, simplemente hoy no hay dato)."""
     out, status = [], {}
-    for hub, airports in cfg["split"]["hubs"].items():
+    pause = cfg["search"].get("hub_pause_seconds", 0)
+    for i, (hub, airports) in enumerate(cfg["split"]["hubs"].items()):
+        if i and pause:
+            time.sleep(pause)  # pausa entre hubs: buscar en ráfaga gatilla el freno de Google
         errors_before = src.errors
         try:
             r = hunt_hub(src, cfg, hub, airports)
@@ -176,6 +180,11 @@ def hunt_split(src, cfg):
 
 def run(src, cfg):
     single = hunt_single(src, cfg)
+    if not single["calendar"]:
+        # Sin calendario = Google nos frenó: no tiene sentido seguir (main no publica nada).
+        return {"single": single, "split": [], "hub_status": {}, "best_single": None,
+                "best_split": None, "split_saving": None, "split_threshold": cfg["split"]["min_saving_usd"],
+                "winner": None}
     split, hub_status = hunt_split(src, cfg)
     best_single = single["options"][0] if single["options"] else None
     best_split = split[0] if split else None

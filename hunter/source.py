@@ -27,6 +27,26 @@ log = logging.getLogger(__name__)
 
 STOPS = {0: MaxStops.NON_STOP, 1: MaxStops.ONE_STOP_OR_FEWER}
 
+# Cuando Google nos frena por exceso de pedidos responde HTTP 200 con este "ErrorResponse 13".
+# fli lo traduce a "sin resultados", así que sin esta marca no se distingue de "no hay vuelos".
+THROTTLE_MARK = '"wrb.fr",null,null,null,null,[13'
+
+
+class _ThrottleSpy:
+    """Envuelve el cliente HTTP de fli para contar las respuestas de freno de Google."""
+
+    def __init__(self, client, src):
+        self._client, self._src = client, src
+
+    def post(self, *args, **kwargs):
+        r = self._client.post(*args, **kwargs)
+        if THROTTLE_MARK in r.text[:300]:
+            self._src.throttled += 1
+        return r
+
+    def __getattr__(self, name):  # todo lo demás pasa directo al cliente original
+        return getattr(self._client, name)
+
 
 class Source:
     def __init__(self, cfg: dict):
@@ -34,7 +54,10 @@ class Source:
         self.flights = SearchFlights()
         self.dates = SearchDates()
         self.calls = 0          # contador de requests a Google (para no abusar)
-        self.errors = 0         # búsquedas que fallaron por error (≠ "no hay vuelos")
+        self.errors = 0         # búsquedas que fallaron por error o freno (≠ "no hay vuelos")
+        self.throttled = 0      # respuestas "ErrorResponse 13" (freno de Google)
+        self.flights.client = _ThrottleSpy(self.flights.client, self)
+        self.dates.client = _ThrottleSpy(self.dates.client, self)
         self._cache = {}        # misma búsqueda en la misma corrida = no se repite
 
     # ---------- helpers internos ----------
@@ -61,6 +84,7 @@ class Source:
         errored = False
         for attempt in range(3):
             self.calls += 1
+            throttled_before = self.throttled
             try:
                 r = fn(*args, currency=s["currency"], country=s["country"], **kwargs)
                 if r:
@@ -68,7 +92,13 @@ class Source:
             except Exception as e:  # red, parseo, rate limit...
                 errored = True
                 log.warning("Error en búsqueda (intento %d): %s", attempt + 1, e)
-            time.sleep(1.5 * (attempt + 1))
+            if self.throttled > throttled_before:
+                # Vacío por freno, no por falta de vuelos: se marca como error y se espera más.
+                errored = True
+                log.warning("Google frenó la búsqueda (intento %d): esperando %ds", attempt + 1, 15 * (attempt + 1))
+                time.sleep(15 * (attempt + 1))
+            else:
+                time.sleep(1.5 * (attempt + 1))
         self.errors += errored
         return []
 

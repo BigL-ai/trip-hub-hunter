@@ -47,6 +47,7 @@ search:
   top_date_pairs: 6                  # cuántas combinaciones de fechas baratas se miran en detalle
   top_date_pairs_per_hub: 2
   top_n_outbound: 5                  # cuántas idas expande Google para armar ida+vuelta
+  hub_pause_seconds: 20              # pausa entre hubs para no gatillar el freno de Google
 
 # ==========================================================
 #  Semáforo de compra (parada óptima con precio de reserva)
