@@ -288,7 +288,7 @@ async function load(){
       <td>${o.dep} → ${o.ret}</td><td>${o.out.wait_h} h</td><td>${o.back.wait_h} h</td>
       <td>${(o.links||[]).map((u,i)=>`<a href="${u}" target="_blank" rel="noopener">${i+1}</a>`).join(" ")}</td></tr>`;
   }).join("") + Object.entries(latest.hub_status || {}).filter(([,s]) => s !== "ok").map(([hub,s]) =>
-    `<tr><td><b>${hub}</b></td><td colspan="6" class="${s==="error"?"warn":"sub"}">${s==="error" ? "⚠ Error de Google hoy: sin dato (no se descartó por precio)" : "Sin combinación válida (no hay directos o no cierran las conexiones)"}</td></tr>`
+    `<tr><td><b>${hub}</b></td><td colspan="6" class="${s==="sin vuelos"?"sub":"warn"}">${s==="error" ? "⚠ Error de Google hoy: sin dato (no se descartó por precio)" : s==="sin tiempo" ? "⏱ No se llegó a buscar hoy (tope de tiempo de la corrida)" : "Sin combinación válida (no hay directos o no cierran las conexiones)"}</td></tr>`
   ).join("") || `<tr><td colspan="7" class="sub">Sin combinaciones válidas hoy</td></tr>`;
 
   signal(latest.buy, history);

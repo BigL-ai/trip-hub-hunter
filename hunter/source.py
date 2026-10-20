@@ -56,6 +56,10 @@ class Source:
         self.calls = 0          # contador de requests a Google (para no abusar)
         self.errors = 0         # búsquedas que fallaron por error o freno (≠ "no hay vuelos")
         self.throttled = 0      # respuestas "ErrorResponse 13" (freno de Google)
+        # Tope de tiempo: pasado este punto no se hacen más búsquedas y se publica lo que haya
+        # (el workflow de GitHub corta a los 30 min y, si corta, no se guarda nada).
+        self.deadline = time.monotonic() + cfg["search"].get("time_budget_minutes", 20) * 60
+        self.out_of_time = False
         self.flights.client = _ThrottleSpy(self.flights.client, self)
         self.dates.client = _ThrottleSpy(self.dates.client, self)
         self._cache = {}        # misma búsqueda en la misma corrida = no se repite
@@ -81,6 +85,11 @@ class Source:
     def _call(self, fn, *args, **kwargs):
         """Llama a Google con reintento: a veces devuelve vacío sin motivo."""
         s = self.cfg["search"]
+        if time.monotonic() > self.deadline:
+            if not self.out_of_time:
+                log.warning("Tope de tiempo alcanzado: no se hacen más búsquedas en esta corrida")
+            self.out_of_time = True
+            return []
         errored = False
         for attempt in range(3):
             self.calls += 1

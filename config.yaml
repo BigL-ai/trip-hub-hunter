@@ -48,6 +48,7 @@ search:
   top_date_pairs_per_hub: 2
   top_n_outbound: 5                  # cuántas idas expande Google para armar ida+vuelta
   hub_pause_seconds: 20              # pausa entre hubs para no gatillar el freno de Google
+  time_budget_minutes: 20            # tope por corrida: pasado esto se publica lo que haya (GitHub corta a los 30)
 
 # ==========================================================
 #  Semáforo de compra (parada óptima con precio de reserva)

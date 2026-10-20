@@ -158,7 +158,7 @@ def hunt_split(src, cfg):
     out, status = [], {}
     pause = cfg["search"].get("hub_pause_seconds", 0)
     for i, (hub, airports) in enumerate(cfg["split"]["hubs"].items()):
-        if i and pause:
+        if i and pause and not src.out_of_time:
             time.sleep(pause)  # pausa entre hubs: buscar en ráfaga gatilla el freno de Google
         errors_before = src.errors
         try:
@@ -171,7 +171,8 @@ def hunt_split(src, cfg):
             out.append(r)
             status[hub] = "ok"
         else:
-            status[hub] = "error" if src.errors > errors_before else "sin vuelos"
+            status[hub] = ("sin tiempo" if src.out_of_time else
+                           "error" if src.errors > errors_before else "sin vuelos")
     out.sort(key=lambda o: o["price"])
     return out, status
 
