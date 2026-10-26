@@ -1,5 +1,5 @@
 {
- "run_at": "2026-10-25T15:01+00:00",
+ "run_at": "2026-10-26T17:24+00:00",
  "trip": {
   "name": "BUE ⇄ Washington — Mar/Abr 2027",
   "origin": [
@@ -54,20 +54,21 @@
    ]
   }
  },
- "requests": 88,
- "report": "Monitoreo activo para EZE/AEP 🔁 IAD/DCA/BWI. Mejor opción actual: $762 USD billete único (DL) (con equipaje).\n\n🔴 Semáforo: ESPERAR — $762 está 12% sobre el precio de reserva ($680). Google: ida a $480, rango típico $390–$520 → precio típico. Fase de observación hasta 2026-11-21: armando baseline.\nFaltan 98 días para la fecha límite de compra (2027-01-31).",
+ "requests": 56,
+ "report": "Monitoreo activo para EZE/AEP 🔁 IAD/DCA/BWI. Mejor opción actual: $762 USD billete único (DL) (con equipaje).\n\n🟡 Semáforo: ATENTO — $762 está 12% sobre el precio de reserva ($680). Se viene CyberMonday Argentina (2026-11-02): conviene esperar a ese pico de ofertas. Google: ida a $480, rango típico $385–$510 → precio típico. Fase de observación hasta 2026-11-21: armando baseline.\nFaltan 97 días para la fecha límite de compra (2027-01-31).",
  "buy": {
-  "color": "red",
-  "label": "ESPERAR",
+  "color": "yellow",
+  "label": "ATENTO",
   "reasons": [
    "$762 está 12% sobre el precio de reserva ($680).",
-   "Google: ida a $480, rango típico $390–$520 → precio típico.",
+   "Se viene CyberMonday Argentina (2026-11-02): conviene esperar a ese pico de ofertas.",
+   "Google: ida a $480, rango típico $385–$510 → precio típico.",
    "Fase de observación hasta 2026-11-21: armando baseline."
   ],
   "price": 762.0,
   "reserve": 680,
   "prev_min": 762.0,
-  "days_to_deadline": 98,
+  "days_to_deadline": 97,
   "deadline": "2027-01-31",
   "next_event": {
    "name": "CyberMonday Argentina",
@@ -118,18 +119,10 @@
   "route": "EZE/AEP → IAD/DCA/BWI",
   "date": "2027-03-01",
   "current": 480,
-  "typical_low": 390,
-  "typical_high": 520,
+  "typical_low": 385,
+  "typical_high": 510,
   "level": "típico",
   "history": [
-   {
-    "date": "2026-08-25",
-    "price": 515
-   },
-   {
-    "date": "2026-08-26",
-    "price": 516
-   },
    {
     "date": "2026-08-27",
     "price": 515
@@ -368,6 +361,10 @@
    },
    {
     "date": "2026-10-25",
+    "price": 479
+   },
+   {
+    "date": "2026-10-26",
     "price": 480
    }
   ]
@@ -523,37 +520,37 @@
    {
     "dep": "2027-03-19",
     "ret": "2027-03-29",
-    "price": 1052.0,
+    "price": 1043.0,
     "days": 10
    },
    {
     "dep": "2027-03-20",
     "ret": "2027-03-30",
-    "price": 1090.0,
+    "price": 897.0,
     "days": 10
    },
    {
     "dep": "2027-03-21",
     "ret": "2027-03-31",
-    "price": 945.0,
+    "price": 937.0,
     "days": 10
    },
    {
     "dep": "2027-03-22",
     "ret": "2027-04-01",
-    "price": 909.0,
+    "price": 937.0,
     "days": 10
    },
    {
     "dep": "2027-03-23",
     "ret": "2027-04-02",
-    "price": 948.0,
+    "price": 940.0,
     "days": 10
    },
    {
     "dep": "2027-03-24",
     "ret": "2027-04-03",
-    "price": 973.0,
+    "price": 983.0,
     "days": 10
    },
    {
@@ -565,7 +562,7 @@
    {
     "dep": "2027-03-26",
     "ret": "2027-04-05",
-    "price": 846.0,
+    "price": 909.0,
     "days": 10
    },
    {
@@ -739,7 +736,7 @@
    {
     "dep": "2027-04-24",
     "ret": "2027-05-04",
-    "price": 762.0,
+    "price": 909.0,
     "days": 10
    },
    {
@@ -889,25 +886,25 @@
    {
     "dep": "2027-03-19",
     "ret": "2027-03-31",
-    "price": 945.0,
+    "price": 937.0,
     "days": 12
    },
    {
     "dep": "2027-03-20",
     "ret": "2027-04-01",
-    "price": 1058.0,
+    "price": 1052.0,
     "days": 12
    },
    {
     "dep": "2027-03-21",
     "ret": "2027-04-02",
-    "price": 1088.0,
+    "price": 1082.0,
     "days": 12
    },
    {
     "dep": "2027-03-22",
     "ret": "2027-04-03",
-    "price": 979.0,
+    "price": 983.0,
     "days": 12
    },
    {
@@ -931,7 +928,7 @@
    {
     "dep": "2027-03-26",
     "ret": "2027-04-07",
-    "price": 846.0,
+    "price": 909.0,
     "days": 12
    },
    {
@@ -1075,7 +1072,7 @@
    {
     "dep": "2027-04-19",
     "ret": "2027-05-01",
-    "price": 846.0,
+    "price": 842.0,
     "days": 12
    },
    {
@@ -1105,7 +1102,7 @@
    {
     "dep": "2027-04-24",
     "ret": "2027-05-06",
-    "price": 762.0,
+    "price": 909.0,
     "days": 12
    },
    {
@@ -1117,7 +1114,7 @@
    {
     "dep": "2027-04-26",
     "ret": "2027-05-08",
-    "price": 846.0,
+    "price": 762.0,
     "days": 12
    },
    {
@@ -1219,7 +1216,7 @@
    {
     "dep": "2027-03-13",
     "ret": "2027-03-28",
-    "price": 945.0,
+    "price": 937.0,
     "days": 15
    },
    {
@@ -1243,31 +1240,31 @@
    {
     "dep": "2027-03-17",
     "ret": "2027-04-01",
-    "price": 846.0,
+    "price": 921.0,
     "days": 15
    },
    {
     "dep": "2027-03-18",
     "ret": "2027-04-02",
-    "price": 925.0,
+    "price": 1008.0,
     "days": 15
    },
    {
     "dep": "2027-03-19",
     "ret": "2027-04-03",
-    "price": 1118.0,
+    "price": 1116.0,
     "days": 15
    },
    {
     "dep": "2027-03-20",
     "ret": "2027-04-04",
-    "price": 1058.0,
+    "price": 1052.0,
     "days": 15
    },
    {
     "dep": "2027-03-21",
     "ret": "2027-04-05",
-    "price": 925.0,
+    "price": 922.0,
     "days": 15
    },
    {
@@ -1297,13 +1294,13 @@
    {
     "dep": "2027-03-26",
     "ret": "2027-04-10",
-    "price": 846.0,
+    "price": 909.0,
     "days": 15
    },
    {
     "dep": "2027-03-27",
     "ret": "2027-04-11",
-    "price": 1113.0,
+    "price": 1109.0,
     "days": 15
    },
    {
@@ -1471,7 +1468,7 @@
    {
     "dep": "2027-04-24",
     "ret": "2027-05-09",
-    "price": 762.0,
+    "price": 909.0,
     "days": 15
    },
    {
@@ -1507,7 +1504,7 @@
    {
     "dep": "2027-04-30",
     "ret": "2027-05-15",
-    "price": 846.0,
+    "price": 909.0,
     "days": 15
    }
   ],
@@ -1609,25 +1606,25 @@
      "legs": [
       {
        "airline": "DL",
-       "flight": "DL5713",
+       "flight": "DL2576",
        "from": "DCA",
-       "to": "JFK",
-       "dep": "2027-03-14T17:00",
-       "arr": "2027-03-14T18:36"
+       "to": "MIA",
+       "dep": "2027-03-14T13:45",
+       "arr": "2027-03-14T16:33"
       },
       {
-       "airline": "DL",
-       "flight": "DL115",
-       "from": "JFK",
+       "airline": "LA",
+       "flight": "LA543",
+       "from": "MIA",
        "to": "EZE",
-       "dep": "2027-03-14T23:10",
-       "arr": "2027-03-15T10:55"
+       "dep": "2027-03-14T23:50",
+       "arr": "2027-03-15T09:50"
       }
      ],
      "stops": 1,
-     "duration_min": 1015,
+     "duration_min": 1145,
      "layovers_min": [
-      274
+      437
      ],
      "self_transfer": false
     },
@@ -1762,6 +1759,68 @@
    },
    {
     "type": "single",
+    "dep": "2027-03-29",
+    "ret": "2027-04-08",
+    "price": 842.0,
+    "out": {
+     "legs": [
+      {
+       "airline": "AA",
+       "flight": "AA900",
+       "from": "EZE",
+       "to": "MIA",
+       "dep": "2027-03-29T20:45",
+       "arr": "2027-03-30T05:10"
+      },
+      {
+       "airline": "AA",
+       "flight": "AA1311",
+       "from": "MIA",
+       "to": "DCA",
+       "dep": "2027-03-30T07:46",
+       "arr": "2027-03-30T10:24"
+      }
+     ],
+     "stops": 1,
+     "duration_min": 879,
+     "layovers_min": [
+      156
+     ],
+     "self_transfer": false
+    },
+    "back": {
+     "legs": [
+      {
+       "airline": "AA",
+       "flight": "AA3131",
+       "from": "DCA",
+       "to": "MIA",
+       "dep": "2027-04-08T11:39",
+       "arr": "2027-04-08T14:30"
+      },
+      {
+       "airline": "AA",
+       "flight": "AA931",
+       "from": "MIA",
+       "to": "EZE",
+       "dep": "2027-04-08T21:15",
+       "arr": "2027-04-09T07:15"
+      }
+     ],
+     "stops": 1,
+     "duration_min": 1116,
+     "layovers_min": [
+      405
+     ],
+     "self_transfer": false
+    },
+    "calendar_price": 762.0,
+    "links": [
+     "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-29+returning+2027-04-08&curr=USD"
+    ]
+   },
+   {
+    "type": "single",
     "dep": "2027-03-14",
     "ret": "2027-03-24",
     "price": 846.0,
@@ -1821,86 +1880,16 @@
     "links": [
      "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-14+returning+2027-03-24&curr=USD"
     ]
-   },
-   {
-    "type": "single",
-    "dep": "2027-03-29",
-    "ret": "2027-04-08",
-    "price": 846.0,
-    "out": {
-     "legs": [
-      {
-       "airline": "AA",
-       "flight": "AA900",
-       "from": "EZE",
-       "to": "MIA",
-       "dep": "2027-03-29T20:45",
-       "arr": "2027-03-30T05:10"
-      },
-      {
-       "airline": "AA",
-       "flight": "AA1311",
-       "from": "MIA",
-       "to": "DCA",
-       "dep": "2027-03-30T07:46",
-       "arr": "2027-03-30T10:24"
-      }
-     ],
-     "stops": 1,
-     "duration_min": 879,
-     "layovers_min": [
-      156
-     ],
-     "self_transfer": false
-    },
-    "back": {
-     "legs": [
-      {
-       "airline": "AA",
-       "flight": "AA4687",
-       "from": "DCA",
-       "to": "LGA",
-       "dep": "2027-04-08T11:23",
-       "arr": "2027-04-08T12:49"
-      },
-      {
-       "airline": "AA",
-       "flight": "AA953",
-       "from": "JFK",
-       "to": "EZE",
-       "dep": "2027-04-08T20:15",
-       "arr": "2027-04-09T08:00"
-      }
-     ],
-     "stops": 1,
-     "duration_min": 1177,
-     "layovers_min": [
-      446
-     ],
-     "self_transfer": false
-    },
-    "calendar_price": 762.0,
-    "links": [
-     "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-29+returning+2027-04-08&curr=USD"
-    ]
    }
   ],
   "insight": {
    "route": "EZE/AEP → IAD/DCA/BWI",
    "date": "2027-03-01",
    "current": 480,
-   "typical_low": 390,
-   "typical_high": 520,
+   "typical_low": 385,
+   "typical_high": 510,
    "level": "típico",
    "history": [
-    {
-     "date": "2026-08-25",
-     "price": 515
-    },
-    {
-     "date": "2026-08-26",
-     "price": 516
-    },
     {
      "date": "2026-08-27",
      "price": 515
@@ -2139,6 +2128,10 @@
     },
     {
      "date": "2026-10-25",
+     "price": 479
+    },
+    {
+     "date": "2026-10-26",
      "price": 480
     }
    ]
@@ -2212,84 +2205,16 @@
     "https://www.google.com/travel/flights?q=Flights+from+MIA+to+BWI+on+2027-04-05+one+way&curr=USD",
     "https://www.google.com/travel/flights?q=Flights+from+BWI+to+MIA+on+2027-04-13+one+way&curr=USD"
    ]
-  },
-  {
-   "type": "split",
-   "hub": "ATL",
-   "dep": "2027-03-01",
-   "ret": "2027-03-11",
-   "price": 2073.0,
-   "tickets": [
-    {
-     "label": "Origen ⇄ ATL (ida y vuelta)",
-     "price": 1785.0
-    },
-    {
-     "label": "ATL → Destino (solo ida)",
-     "price": 94.0
-    },
-    {
-     "label": "Destino → ATL (solo ida)",
-     "price": 194.0
-    }
-   ],
-   "out": {
-    "legs": [
-     {
-      "airline": "DL",
-      "flight": "DL110",
-      "from": "EZE",
-      "to": "ATL",
-      "dep": "2027-03-01T21:30",
-      "arr": "2027-03-02T05:47"
-     },
-     {
-      "airline": "F9",
-      "flight": "F94410",
-      "from": "ATL",
-      "to": "IAD",
-      "dep": "2027-03-02T12:55",
-      "arr": "2027-03-02T14:43"
-     }
-    ],
-    "wait_h": 7.1
-   },
-   "back": {
-    "legs": [
-     {
-      "airline": "F9",
-      "flight": "F93691",
-      "from": "IAD",
-      "to": "ATL",
-      "dep": "2027-03-10T22:57",
-      "arr": "2027-03-11T01:01"
-     },
-     {
-      "airline": "DL",
-      "flight": "DL279",
-      "from": "ATL",
-      "to": "EZE",
-      "dep": "2027-03-11T19:35",
-      "arr": "2027-03-12T07:35"
-     }
-    ],
-    "wait_h": 18.6
-   },
-   "links": [
-    "https://www.google.com/travel/flights?q=Flights+from+EZE+to+ATL+on+2027-03-01+returning+2027-03-11&curr=USD",
-    "https://www.google.com/travel/flights?q=Flights+from+ATL+to+IAD+on+2027-03-02+one+way&curr=USD",
-    "https://www.google.com/travel/flights?q=Flights+from+IAD+to+ATL+on+2027-03-10+one+way&curr=USD"
-   ]
   }
  ],
  "hub_status": {
   "MIA": "ok",
-  "FLL": "sin vuelos",
-  "MCO": "sin vuelos",
-  "ATL": "ok",
-  "NYC": "error",
-  "PTY": "error",
-  "BOG": "error",
+  "FLL": "error",
+  "MCO": "error",
+  "ATL": "error",
+  "NYC": "sin tiempo",
+  "PTY": "sin tiempo",
+  "BOG": "sin tiempo",
   "MDE": "sin tiempo"
  },
  "best_single": {
