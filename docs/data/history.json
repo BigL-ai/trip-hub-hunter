@@ -241,5 +241,18 @@
   "by_hub": {
    "MIA": 1041.0
   }
+ },
+ {
+  "signal": "green",
+  "google_level": "típico",
+  "run_at": "2026-11-02T20:55+00:00",
+  "winner_price": 612.0,
+  "winner_label": "billete único",
+  "single_price": 612.0,
+  "split_price": 915.0,
+  "split_hub": "MIA",
+  "by_hub": {
+   "MIA": 915.0
+  }
  }
 ]
