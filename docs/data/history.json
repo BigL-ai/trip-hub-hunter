@@ -330,5 +330,16 @@
    "NYC": 1409.0,
    "ATL": 2131.0
   }
+ },
+ {
+  "signal": "yellow",
+  "google_level": "típico",
+  "run_at": "2026-11-09T21:31+00:00",
+  "winner_price": 705.0,
+  "winner_label": "billete único",
+  "single_price": 705.0,
+  "split_price": null,
+  "split_hub": null,
+  "by_hub": {}
  }
 ]
