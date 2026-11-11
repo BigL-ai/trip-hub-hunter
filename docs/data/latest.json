@@ -1,5 +1,5 @@
 {
- "run_at": "2026-11-10T18:43+00:00",
+ "run_at": "2026-11-11T18:33+00:00",
  "trip": {
   "name": "BUE ⇄ Washington — Mar/Abr 2027",
   "origin": [
@@ -54,20 +54,20 @@
    ]
   }
  },
- "requests": 63,
- "report": "Monitoreo activo para EZE/AEP 🔁 IAD/DCA/BWI. Mejor opción actual: $705 USD billete único (DL) (con equipaje).\n\n🟡 Semáforo: ATENTO — $705 está 1% sobre el precio de reserva ($700). Google: ida a $506, rango típico $385–$510 → precio típico. Fase de observación hasta 2026-11-21: armando baseline.\nFaltan 82 días para la fecha límite de compra (2027-01-31).",
+ "requests": 55,
+ "report": "Monitoreo activo para EZE/AEP 🔁 IAD/DCA/BWI. Mejor opción actual: $704 USD billete único (DL) (con equipaje).\n\n🟡 Semáforo: ATENTO — $704 está 1% sobre el precio de reserva ($700). Google: ida a $506, rango típico $385–$510 → precio típico. Fase de observación hasta 2026-11-21: armando baseline.\nFaltan 81 días para la fecha límite de compra (2027-01-31).",
  "buy": {
   "color": "yellow",
   "label": "ATENTO",
   "reasons": [
-   "$705 está 1% sobre el precio de reserva ($700).",
+   "$704 está 1% sobre el precio de reserva ($700).",
    "Google: ida a $506, rango típico $385–$510 → precio típico.",
    "Fase de observación hasta 2026-11-21: armando baseline."
   ],
-  "price": 705.0,
+  "price": 704.0,
   "reserve": 700,
   "prev_min": 609.0,
-  "days_to_deadline": 82,
+  "days_to_deadline": 81,
   "deadline": "2027-01-31",
   "next_event": {
    "name": "Black Friday / Cyber Monday EE.UU.",
@@ -122,10 +122,6 @@
   "typical_high": 510,
   "level": "típico",
   "history": [
-   {
-    "date": "2026-09-11",
-    "price": 551
-   },
    {
     "date": "2026-09-12",
     "price": 553
@@ -276,7 +272,7 @@
    },
    {
     "date": "2026-10-19",
-    "price": 479
+    "price": 464
    },
    {
     "date": "2026-10-20",
@@ -365,6 +361,10 @@
    {
     "date": "2026-11-10",
     "price": 506
+   },
+   {
+    "date": "2026-11-11",
+    "price": 506
    }
   ]
  },
@@ -377,15 +377,15 @@
     "days": 10
    },
    {
-    "dep": "2027-03-01",
-    "ret": "2027-03-13",
+    "dep": "2027-03-02",
+    "ret": "2027-03-14",
     "price": 684.0,
     "days": 12
    },
    {
     "dep": "2027-03-01",
     "ret": "2027-03-11",
-    "price": 705.0,
+    "price": 706.0,
     "days": 10
    },
    {
@@ -395,8 +395,8 @@
     "days": 10
    },
    {
-    "dep": "2027-03-04",
-    "ret": "2027-03-16",
+    "dep": "2027-03-05",
+    "ret": "2027-03-17",
     "price": 713.0,
     "days": 12
    },
@@ -411,19 +411,19 @@
    {
     "dep": "2027-03-01",
     "ret": "2027-03-11",
-    "price": 705.0,
+    "price": 706.0,
     "days": 10
    },
    {
     "dep": "2027-03-02",
     "ret": "2027-03-12",
-    "price": 842.0,
+    "price": 841.0,
     "days": 10
    },
    {
     "dep": "2027-03-03",
     "ret": "2027-03-13",
-    "price": 851.0,
+    "price": 858.0,
     "days": 10
    },
    {
@@ -459,13 +459,13 @@
    {
     "dep": "2027-03-09",
     "ret": "2027-03-19",
-    "price": 734.0,
+    "price": 761.0,
     "days": 10
    },
    {
     "dep": "2027-03-10",
     "ret": "2027-03-20",
-    "price": 734.0,
+    "price": 761.0,
     "days": 10
    },
    {
@@ -477,43 +477,43 @@
    {
     "dep": "2027-03-12",
     "ret": "2027-03-22",
-    "price": 734.0,
+    "price": 761.0,
     "days": 10
    },
    {
     "dep": "2027-03-13",
     "ret": "2027-03-23",
-    "price": 924.0,
+    "price": 897.0,
     "days": 10
    },
    {
     "dep": "2027-03-14",
     "ret": "2027-03-24",
-    "price": 870.0,
+    "price": 897.0,
     "days": 10
    },
    {
     "dep": "2027-03-15",
     "ret": "2027-03-25",
-    "price": 872.0,
+    "price": 865.0,
     "days": 10
    },
    {
     "dep": "2027-03-16",
     "ret": "2027-03-26",
-    "price": 833.0,
+    "price": 1086.0,
     "days": 10
    },
    {
     "dep": "2027-03-17",
     "ret": "2027-03-27",
-    "price": 989.0,
+    "price": 1022.0,
     "days": 10
    },
    {
     "dep": "2027-03-18",
     "ret": "2027-03-28",
-    "price": 945.0,
+    "price": 887.0,
     "days": 10
    },
    {
@@ -525,7 +525,7 @@
    {
     "dep": "2027-03-20",
     "ret": "2027-03-30",
-    "price": 1259.0,
+    "price": 1105.0,
     "days": 10
    },
    {
@@ -543,241 +543,241 @@
    {
     "dep": "2027-03-23",
     "ret": "2027-04-02",
-    "price": 946.0,
+    "price": 812.0,
     "days": 10
    },
    {
     "dep": "2027-03-24",
     "ret": "2027-04-03",
-    "price": 989.0,
+    "price": 969.0,
     "days": 10
    },
    {
     "dep": "2027-03-25",
     "ret": "2027-04-04",
-    "price": 833.0,
+    "price": 812.0,
     "days": 10
    },
    {
     "dep": "2027-03-26",
     "ret": "2027-04-05",
-    "price": 900.0,
+    "price": 907.0,
     "days": 10
    },
    {
     "dep": "2027-03-27",
     "ret": "2027-04-06",
-    "price": 1140.0,
+    "price": 1142.0,
     "days": 10
    },
    {
     "dep": "2027-03-28",
     "ret": "2027-04-07",
-    "price": 933.0,
+    "price": 934.0,
     "days": 10
    },
    {
     "dep": "2027-03-29",
     "ret": "2027-04-08",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-03-30",
     "ret": "2027-04-09",
-    "price": 762.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-03-31",
     "ret": "2027-04-10",
-    "price": 762.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-04-01",
     "ret": "2027-04-11",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-02",
     "ret": "2027-04-12",
-    "price": 933.0,
+    "price": 934.0,
     "days": 10
    },
    {
     "dep": "2027-04-03",
     "ret": "2027-04-13",
-    "price": 933.0,
+    "price": 846.0,
     "days": 10
    },
    {
     "dep": "2027-04-04",
     "ret": "2027-04-14",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-05",
     "ret": "2027-04-15",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-06",
     "ret": "2027-04-16",
-    "price": 762.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-04-07",
     "ret": "2027-04-17",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-08",
     "ret": "2027-04-18",
-    "price": 762.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-04-09",
     "ret": "2027-04-19",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-10",
     "ret": "2027-04-20",
-    "price": 816.0,
+    "price": 934.0,
     "days": 10
    },
    {
     "dep": "2027-04-11",
     "ret": "2027-04-21",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-12",
     "ret": "2027-04-22",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-13",
     "ret": "2027-04-23",
-    "price": 816.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-04-14",
     "ret": "2027-04-24",
-    "price": 762.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-15",
     "ret": "2027-04-25",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-16",
     "ret": "2027-04-26",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-17",
     "ret": "2027-04-27",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-18",
     "ret": "2027-04-28",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-19",
     "ret": "2027-04-29",
-    "price": 762.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-20",
     "ret": "2027-04-30",
-    "price": 762.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-04-21",
     "ret": "2027-05-01",
-    "price": 762.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-22",
     "ret": "2027-05-02",
-    "price": 762.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-23",
     "ret": "2027-05-03",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-24",
     "ret": "2027-05-04",
-    "price": 816.0,
+    "price": 879.0,
     "days": 10
    },
    {
     "dep": "2027-04-25",
     "ret": "2027-05-05",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-26",
     "ret": "2027-05-06",
-    "price": 762.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-04-27",
     "ret": "2027-05-07",
-    "price": 762.0,
+    "price": 764.0,
     "days": 10
    },
    {
     "dep": "2027-04-28",
     "ret": "2027-05-08",
-    "price": 900.0,
+    "price": 907.0,
     "days": 10
    },
    {
     "dep": "2027-04-29",
     "ret": "2027-05-09",
-    "price": 816.0,
+    "price": 817.0,
     "days": 10
    },
    {
     "dep": "2027-04-30",
     "ret": "2027-05-10",
-    "price": 933.0,
+    "price": 934.0,
     "days": 10
    },
    {
     "dep": "2027-03-01",
     "ret": "2027-03-13",
-    "price": 684.0,
+    "price": 858.0,
     "days": 12
    },
    {
@@ -813,13 +813,13 @@
    {
     "dep": "2027-03-07",
     "ret": "2027-03-19",
-    "price": 760.0,
+    "price": 761.0,
     "days": 12
    },
    {
     "dep": "2027-03-08",
     "ret": "2027-03-20",
-    "price": 734.0,
+    "price": 761.0,
     "days": 12
    },
    {
@@ -843,7 +843,7 @@
    {
     "dep": "2027-03-12",
     "ret": "2027-03-24",
-    "price": 734.0,
+    "price": 761.0,
     "days": 12
    },
    {
@@ -855,265 +855,265 @@
    {
     "dep": "2027-03-14",
     "ret": "2027-03-26",
-    "price": 1187.0,
+    "price": 1186.0,
     "days": 12
    },
    {
     "dep": "2027-03-15",
     "ret": "2027-03-27",
-    "price": 995.0,
+    "price": 1022.0,
     "days": 12
    },
    {
     "dep": "2027-03-16",
     "ret": "2027-03-28",
-    "price": 833.0,
+    "price": 887.0,
     "days": 12
    },
    {
     "dep": "2027-03-17",
     "ret": "2027-03-29",
-    "price": 833.0,
+    "price": 887.0,
     "days": 12
    },
    {
     "dep": "2027-03-18",
     "ret": "2027-03-30",
-    "price": 1013.0,
+    "price": 943.0,
     "days": 12
    },
    {
     "dep": "2027-03-19",
     "ret": "2027-03-31",
-    "price": 1061.0,
+    "price": 945.0,
     "days": 12
    },
    {
     "dep": "2027-03-20",
     "ret": "2027-04-01",
-    "price": 1259.0,
+    "price": 1244.0,
     "days": 12
    },
    {
     "dep": "2027-03-21",
     "ret": "2027-04-02",
-    "price": 1157.0,
+    "price": 1086.0,
     "days": 12
    },
    {
     "dep": "2027-03-22",
     "ret": "2027-04-03",
-    "price": 962.0,
+    "price": 989.0,
     "days": 12
    },
    {
     "dep": "2027-03-23",
     "ret": "2027-04-04",
-    "price": 946.0,
+    "price": 812.0,
     "days": 12
    },
    {
     "dep": "2027-03-24",
     "ret": "2027-04-05",
-    "price": 833.0,
+    "price": 816.0,
     "days": 12
    },
    {
     "dep": "2027-03-25",
     "ret": "2027-04-06",
-    "price": 762.0,
+    "price": 812.0,
     "days": 12
    },
    {
     "dep": "2027-03-26",
     "ret": "2027-04-07",
-    "price": 900.0,
+    "price": 907.0,
     "days": 12
    },
    {
     "dep": "2027-03-27",
     "ret": "2027-04-08",
-    "price": 1067.0,
+    "price": 1066.0,
     "days": 12
    },
    {
     "dep": "2027-03-28",
     "ret": "2027-04-09",
-    "price": 933.0,
+    "price": 934.0,
     "days": 12
    },
    {
     "dep": "2027-03-29",
     "ret": "2027-04-10",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-03-30",
     "ret": "2027-04-11",
-    "price": 762.0,
+    "price": 764.0,
     "days": 12
    },
    {
     "dep": "2027-03-31",
     "ret": "2027-04-12",
-    "price": 762.0,
+    "price": 764.0,
     "days": 12
    },
    {
     "dep": "2027-04-01",
     "ret": "2027-04-13",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-02",
     "ret": "2027-04-14",
-    "price": 933.0,
+    "price": 934.0,
     "days": 12
    },
    {
     "dep": "2027-04-03",
     "ret": "2027-04-15",
-    "price": 933.0,
+    "price": 846.0,
     "days": 12
    },
    {
     "dep": "2027-04-04",
     "ret": "2027-04-16",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-05",
     "ret": "2027-04-17",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-06",
     "ret": "2027-04-18",
-    "price": 762.0,
+    "price": 764.0,
     "days": 12
    },
    {
     "dep": "2027-04-07",
     "ret": "2027-04-19",
-    "price": 762.0,
+    "price": 764.0,
     "days": 12
    },
    {
     "dep": "2027-04-08",
     "ret": "2027-04-20",
-    "price": 762.0,
+    "price": 764.0,
     "days": 12
    },
    {
     "dep": "2027-04-09",
     "ret": "2027-04-21",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-10",
     "ret": "2027-04-22",
-    "price": 816.0,
+    "price": 934.0,
     "days": 12
    },
    {
     "dep": "2027-04-11",
     "ret": "2027-04-23",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-12",
     "ret": "2027-04-24",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-13",
     "ret": "2027-04-25",
-    "price": 816.0,
+    "price": 764.0,
     "days": 12
    },
    {
     "dep": "2027-04-14",
     "ret": "2027-04-26",
-    "price": 762.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-15",
     "ret": "2027-04-27",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-16",
     "ret": "2027-04-28",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-17",
     "ret": "2027-04-29",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-18",
     "ret": "2027-04-30",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-19",
     "ret": "2027-05-01",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-20",
     "ret": "2027-05-02",
-    "price": 762.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-21",
     "ret": "2027-05-03",
-    "price": 762.0,
+    "price": 764.0,
     "days": 12
    },
    {
     "dep": "2027-04-22",
     "ret": "2027-05-04",
-    "price": 762.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-23",
     "ret": "2027-05-05",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-24",
     "ret": "2027-05-06",
-    "price": 816.0,
+    "price": 879.0,
     "days": 12
    },
    {
     "dep": "2027-04-25",
     "ret": "2027-05-07",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-26",
     "ret": "2027-05-08",
-    "price": 762.0,
+    "price": 764.0,
     "days": 12
    },
    {
@@ -1125,19 +1125,19 @@
    {
     "dep": "2027-04-28",
     "ret": "2027-05-10",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-29",
     "ret": "2027-05-11",
-    "price": 816.0,
+    "price": 817.0,
     "days": 12
    },
    {
     "dep": "2027-04-30",
     "ret": "2027-05-12",
-    "price": 933.0,
+    "price": 915.0,
     "days": 12
    },
    {
@@ -1161,13 +1161,13 @@
    {
     "dep": "2027-03-04",
     "ret": "2027-03-19",
-    "price": 734.0,
+    "price": 761.0,
     "days": 15
    },
    {
     "dep": "2027-03-05",
     "ret": "2027-03-20",
-    "price": 713.0,
+    "price": 761.0,
     "days": 15
    },
    {
@@ -1197,55 +1197,55 @@
    {
     "dep": "2027-03-10",
     "ret": "2027-03-25",
-    "price": 734.0,
+    "price": 761.0,
     "days": 15
    },
    {
     "dep": "2027-03-11",
     "ret": "2027-03-26",
-    "price": 833.0,
+    "price": 1055.0,
     "days": 15
    },
    {
     "dep": "2027-03-12",
     "ret": "2027-03-27",
-    "price": 989.0,
+    "price": 1022.0,
     "days": 15
    },
    {
     "dep": "2027-03-13",
     "ret": "2027-03-28",
-    "price": 1036.0,
+    "price": 1031.0,
     "days": 15
    },
    {
     "dep": "2027-03-14",
     "ret": "2027-03-29",
-    "price": 906.0,
+    "price": 905.0,
     "days": 15
    },
    {
     "dep": "2027-03-15",
     "ret": "2027-03-30",
-    "price": 872.0,
+    "price": 842.0,
     "days": 15
    },
    {
     "dep": "2027-03-16",
     "ret": "2027-03-31",
-    "price": 900.0,
+    "price": 943.0,
     "days": 15
    },
    {
     "dep": "2027-03-17",
     "ret": "2027-04-01",
-    "price": 1013.0,
+    "price": 943.0,
     "days": 15
    },
    {
     "dep": "2027-03-18",
     "ret": "2027-04-02",
-    "price": 1120.0,
+    "price": 971.0,
     "days": 15
    },
    {
@@ -1257,7 +1257,7 @@
    {
     "dep": "2027-03-20",
     "ret": "2027-04-04",
-    "price": 1212.0,
+    "price": 1211.0,
     "days": 15
    },
    {
@@ -1269,175 +1269,175 @@
    {
     "dep": "2027-03-22",
     "ret": "2027-04-06",
-    "price": 900.0,
+    "price": 934.0,
     "days": 15
    },
    {
     "dep": "2027-03-23",
     "ret": "2027-04-07",
-    "price": 933.0,
+    "price": 934.0,
     "days": 15
    },
    {
     "dep": "2027-03-24",
     "ret": "2027-04-08",
-    "price": 762.0,
+    "price": 816.0,
     "days": 15
    },
    {
     "dep": "2027-03-25",
     "ret": "2027-04-09",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-03-26",
     "ret": "2027-04-10",
-    "price": 900.0,
+    "price": 907.0,
     "days": 15
    },
    {
     "dep": "2027-03-27",
     "ret": "2027-04-11",
-    "price": 1140.0,
+    "price": 1142.0,
     "days": 15
    },
    {
     "dep": "2027-03-28",
     "ret": "2027-04-12",
-    "price": 933.0,
+    "price": 934.0,
     "days": 15
    },
    {
     "dep": "2027-03-29",
     "ret": "2027-04-13",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-03-30",
     "ret": "2027-04-14",
-    "price": 762.0,
+    "price": 764.0,
     "days": 15
    },
    {
     "dep": "2027-03-31",
     "ret": "2027-04-15",
-    "price": 762.0,
+    "price": 764.0,
     "days": 15
    },
    {
     "dep": "2027-04-01",
     "ret": "2027-04-16",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-02",
     "ret": "2027-04-17",
-    "price": 933.0,
+    "price": 904.0,
     "days": 15
    },
    {
     "dep": "2027-04-03",
     "ret": "2027-04-18",
-    "price": 933.0,
+    "price": 846.0,
     "days": 15
    },
    {
     "dep": "2027-04-04",
     "ret": "2027-04-19",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-05",
     "ret": "2027-04-20",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-06",
     "ret": "2027-04-21",
-    "price": 762.0,
+    "price": 764.0,
     "days": 15
    },
    {
     "dep": "2027-04-07",
     "ret": "2027-04-22",
-    "price": 762.0,
+    "price": 764.0,
     "days": 15
    },
    {
     "dep": "2027-04-08",
     "ret": "2027-04-23",
-    "price": 762.0,
+    "price": 764.0,
     "days": 15
    },
    {
     "dep": "2027-04-09",
     "ret": "2027-04-24",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-10",
     "ret": "2027-04-25",
-    "price": 816.0,
+    "price": 934.0,
     "days": 15
    },
    {
     "dep": "2027-04-11",
     "ret": "2027-04-26",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-12",
     "ret": "2027-04-27",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-13",
     "ret": "2027-04-28",
-    "price": 816.0,
+    "price": 764.0,
     "days": 15
    },
    {
     "dep": "2027-04-14",
     "ret": "2027-04-29",
-    "price": 762.0,
+    "price": 812.0,
     "days": 15
    },
    {
     "dep": "2027-04-15",
     "ret": "2027-04-30",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-16",
     "ret": "2027-05-01",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-17",
     "ret": "2027-05-02",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-18",
     "ret": "2027-05-03",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-19",
     "ret": "2027-05-04",
-    "price": 762.0,
+    "price": 817.0,
     "days": 15
    },
    {
@@ -1449,37 +1449,37 @@
    {
     "dep": "2027-04-21",
     "ret": "2027-05-06",
-    "price": 762.0,
+    "price": 764.0,
     "days": 15
    },
    {
     "dep": "2027-04-22",
     "ret": "2027-05-07",
-    "price": 762.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-23",
     "ret": "2027-05-08",
-    "price": 900.0,
+    "price": 907.0,
     "days": 15
    },
    {
     "dep": "2027-04-24",
     "ret": "2027-05-09",
-    "price": 816.0,
+    "price": 934.0,
     "days": 15
    },
    {
     "dep": "2027-04-25",
     "ret": "2027-05-10",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-26",
     "ret": "2027-05-11",
-    "price": 762.0,
+    "price": 764.0,
     "days": 15
    },
    {
@@ -1491,28 +1491,28 @@
    {
     "dep": "2027-04-28",
     "ret": "2027-05-13",
-    "price": 816.0,
+    "price": 817.0,
     "days": 15
    },
    {
     "dep": "2027-04-29",
     "ret": "2027-05-14",
-    "price": 900.0,
+    "price": 879.0,
     "days": 15
    },
    {
     "dep": "2027-04-30",
     "ret": "2027-05-15",
-    "price": 987.0,
+    "price": 907.0,
     "days": 15
    }
   ],
   "options": [
    {
     "type": "single",
-    "dep": "2027-03-04",
+    "dep": "2027-03-02",
     "ret": "2027-03-14",
-    "price": 705.0,
+    "price": 704.0,
     "out": {
      "legs": [
       {
@@ -1520,16 +1520,16 @@
        "flight": "DL114",
        "from": "EZE",
        "to": "JFK",
-       "dep": "2027-03-04T20:05",
-       "arr": "2027-03-05T05:00"
+       "dep": "2027-03-02T20:05",
+       "arr": "2027-03-03T05:00"
       },
       {
        "airline": "DL",
        "flight": "DL5750",
        "from": "JFK",
        "to": "DCA",
-       "dep": "2027-03-05T08:55",
-       "arr": "2027-03-05T10:28"
+       "dep": "2027-03-03T08:55",
+       "arr": "2027-03-03T10:28"
       }
      ],
      "stops": 1,
@@ -1567,6 +1567,68 @@
     },
     "calendar_price": 684.0,
     "links": [
+     "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-02+returning+2027-03-14&curr=USD"
+    ]
+   },
+   {
+    "type": "single",
+    "dep": "2027-03-04",
+    "ret": "2027-03-14",
+    "price": 706.0,
+    "out": {
+     "legs": [
+      {
+       "airline": "DL",
+       "flight": "DL110",
+       "from": "EZE",
+       "to": "ATL",
+       "dep": "2027-03-04T21:30",
+       "arr": "2027-03-05T05:47"
+      },
+      {
+       "airline": "DL",
+       "flight": "DL1324",
+       "from": "ATL",
+       "to": "IAD",
+       "dep": "2027-03-05T08:05",
+       "arr": "2027-03-05T09:50"
+      }
+     ],
+     "stops": 1,
+     "duration_min": 860,
+     "layovers_min": [
+      138
+     ],
+     "self_transfer": false
+    },
+    "back": {
+     "legs": [
+      {
+       "airline": "DL",
+       "flight": "DL1444",
+       "from": "IAD",
+       "to": "ATL",
+       "dep": "2027-03-14T13:00",
+       "arr": "2027-03-14T14:57"
+      },
+      {
+       "airline": "DL",
+       "flight": "DL279",
+       "from": "ATL",
+       "to": "EZE",
+       "dep": "2027-03-14T20:35",
+       "arr": "2027-03-15T07:35"
+      }
+     ],
+     "stops": 1,
+     "duration_min": 1055,
+     "layovers_min": [
+      338
+     ],
+     "self_transfer": false
+    },
+    "calendar_price": 684.0,
+    "links": [
      "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-04+returning+2027-03-14&curr=USD"
     ]
    },
@@ -1574,30 +1636,30 @@
     "type": "single",
     "dep": "2027-03-01",
     "ret": "2027-03-11",
-    "price": 705.0,
+    "price": 706.0,
     "out": {
      "legs": [
       {
        "airline": "DL",
-       "flight": "DL114",
+       "flight": "DL278",
        "from": "EZE",
-       "to": "JFK",
-       "dep": "2027-03-01T20:05",
-       "arr": "2027-03-02T05:00"
+       "to": "ATL",
+       "dep": "2027-03-01T23:35",
+       "arr": "2027-03-02T07:58"
       },
       {
        "airline": "DL",
-       "flight": "DL5750",
-       "from": "JFK",
+       "flight": "DL880",
+       "from": "ATL",
        "to": "DCA",
-       "dep": "2027-03-02T08:55",
-       "arr": "2027-03-02T10:28"
+       "dep": "2027-03-02T11:06",
+       "arr": "2027-03-02T12:53"
       }
      ],
      "stops": 1,
-     "duration_min": 983,
+     "duration_min": 918,
      "layovers_min": [
-      235
+      188
      ],
      "self_transfer": false
     },
@@ -1627,7 +1689,7 @@
      ],
      "self_transfer": false
     },
-    "calendar_price": 705.0,
+    "calendar_price": 706.0,
     "links": [
      "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-01+returning+2027-03-11&curr=USD"
     ]
@@ -1636,7 +1698,7 @@
     "type": "single",
     "dep": "2027-03-07",
     "ret": "2027-03-17",
-    "price": 713.0,
+    "price": 714.0,
     "out": {
      "legs": [
       {
@@ -1649,17 +1711,17 @@
       },
       {
        "airline": "AA",
-       "flight": "AA1311",
+       "flight": "AA1252",
        "from": "MIA",
        "to": "DCA",
-       "dep": "2027-03-08T07:46",
-       "arr": "2027-03-08T10:24"
+       "dep": "2027-03-08T06:45",
+       "arr": "2027-03-08T09:24"
       }
      ],
      "stops": 1,
-     "duration_min": 884,
+     "duration_min": 824,
      "layovers_min": [
-      166
+      105
      ],
      "self_transfer": false
     },
@@ -1696,32 +1758,32 @@
    },
    {
     "type": "single",
-    "dep": "2027-03-04",
-    "ret": "2027-03-16",
-    "price": 713.0,
+    "dep": "2027-03-05",
+    "ret": "2027-03-17",
+    "price": 714.0,
     "out": {
      "legs": [
       {
        "airline": "AA",
-       "flight": "AA900",
+       "flight": "AA954",
        "from": "EZE",
-       "to": "MIA",
-       "dep": "2027-03-04T21:40",
-       "arr": "2027-03-05T05:00"
+       "to": "JFK",
+       "dep": "2027-03-05T21:10",
+       "arr": "2027-03-06T06:00"
       },
       {
        "airline": "AA",
-       "flight": "AA1252",
-       "from": "MIA",
+       "flight": "AA4420",
+       "from": "LGA",
        "to": "DCA",
-       "dep": "2027-03-05T06:45",
-       "arr": "2027-03-05T09:24"
+       "dep": "2027-03-06T11:11",
+       "arr": "2027-03-06T12:52"
       }
      ],
      "stops": 1,
-     "duration_min": 824,
+     "duration_min": 1062,
      "layovers_min": [
-      105
+      311
      ],
      "self_transfer": false
     },
@@ -1729,38 +1791,38 @@
      "legs": [
       {
        "airline": "AA",
-       "flight": "AA939",
+       "flight": "AA2055",
        "from": "DCA",
        "to": "MIA",
-       "dep": "2027-03-16T11:20",
-       "arr": "2027-03-16T14:08"
+       "dep": "2027-03-17T14:57",
+       "arr": "2027-03-17T17:50"
       },
       {
        "airline": "AA",
        "flight": "AA931",
        "from": "MIA",
        "to": "EZE",
-       "dep": "2027-03-16T20:15",
-       "arr": "2027-03-17T06:25"
+       "dep": "2027-03-17T20:15",
+       "arr": "2027-03-18T06:25"
       }
      ],
      "stops": 1,
-     "duration_min": 1085,
+     "duration_min": 868,
      "layovers_min": [
-      367
+      145
      ],
      "self_transfer": false
     },
     "calendar_price": 713.0,
     "links": [
-     "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-04+returning+2027-03-16&curr=USD"
+     "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-05+returning+2027-03-17&curr=USD"
     ]
    },
    {
     "type": "single",
     "dep": "2027-03-01",
     "ret": "2027-03-16",
-    "price": 713.0,
+    "price": 714.0,
     "out": {
      "legs": [
       {
@@ -1773,17 +1835,17 @@
       },
       {
        "airline": "AA",
-       "flight": "AA2362",
+       "flight": "AA2648",
        "from": "MIA",
        "to": "DCA",
-       "dep": "2027-03-01T19:40",
-       "arr": "2027-03-01T22:27"
+       "dep": "2027-03-01T21:12",
+       "arr": "2027-03-01T23:59"
       }
      ],
      "stops": 1,
-     "duration_min": 857,
+     "duration_min": 949,
      "layovers_min": [
-      140
+      232
      ],
      "self_transfer": false
     },
@@ -1817,68 +1879,6 @@
     "links": [
      "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-01+returning+2027-03-16&curr=USD"
     ]
-   },
-   {
-    "type": "single",
-    "dep": "2027-03-01",
-    "ret": "2027-03-13",
-    "price": 851.0,
-    "out": {
-     "legs": [
-      {
-       "airline": "AA",
-       "flight": "AA982",
-       "from": "EZE",
-       "to": "MIA",
-       "dep": "2027-03-01T10:10",
-       "arr": "2027-03-01T17:20"
-      },
-      {
-       "airline": "AA",
-       "flight": "AA2362",
-       "from": "MIA",
-       "to": "DCA",
-       "dep": "2027-03-01T19:40",
-       "arr": "2027-03-01T22:27"
-      }
-     ],
-     "stops": 1,
-     "duration_min": 857,
-     "layovers_min": [
-      140
-     ],
-     "self_transfer": false
-    },
-    "back": {
-     "legs": [
-      {
-       "airline": "AA",
-       "flight": "AA939",
-       "from": "DCA",
-       "to": "MIA",
-       "dep": "2027-03-13T11:20",
-       "arr": "2027-03-13T14:08"
-      },
-      {
-       "airline": "AA",
-       "flight": "AA931",
-       "from": "MIA",
-       "to": "EZE",
-       "dep": "2027-03-13T20:15",
-       "arr": "2027-03-14T07:25"
-      }
-     ],
-     "stops": 1,
-     "duration_min": 1085,
-     "layovers_min": [
-      367
-     ],
-     "self_transfer": false
-    },
-    "calendar_price": 684.0,
-    "links": [
-     "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-01+returning+2027-03-13&curr=USD"
-    ]
    }
   ],
   "insight": {
@@ -1889,10 +1889,6 @@
    "typical_high": 510,
    "level": "típico",
    "history": [
-    {
-     "date": "2026-09-11",
-     "price": 551
-    },
     {
      "date": "2026-09-12",
      "price": 553
@@ -2043,7 +2039,7 @@
     },
     {
      "date": "2026-10-19",
-     "price": 479
+     "price": 464
     },
     {
      "date": "2026-10-20",
@@ -2132,6 +2128,10 @@
     {
      "date": "2026-11-10",
      "price": 506
+    },
+    {
+     "date": "2026-11-11",
+     "price": 506
     }
    ]
   }
@@ -2140,69 +2140,69 @@
   {
    "type": "split",
    "hub": "MIA",
-   "dep": "2027-04-04",
-   "ret": "2027-04-14",
-   "price": 1147.0,
+   "dep": "2027-04-01",
+   "ret": "2027-04-11",
+   "price": 1347.0,
    "tickets": [
     {
      "label": "Origen ⇄ MIA (ida y vuelta)",
-     "price": 763.0
+     "price": 944.0
     },
     {
      "label": "MIA → Destino (solo ida)",
-     "price": 230.0
+     "price": 239.0
     },
     {
      "label": "Destino → MIA (solo ida)",
-     "price": 154.0
+     "price": 164.0
     }
    ],
    "out": {
     "legs": [
      {
-      "airline": "LA",
-      "flight": "LA542",
+      "airline": "AA",
+      "flight": "AA908",
       "from": "EZE",
       "to": "MIA",
-      "dep": "2027-04-04T13:10",
-      "arr": "2027-04-04T21:15"
+      "dep": "2027-04-01T22:20",
+      "arr": "2027-04-02T06:45"
      },
      {
       "airline": "F9",
       "flight": "F92940",
       "from": "MIA",
       "to": "BWI",
-      "dep": "2027-04-05T16:53",
-      "arr": "2027-04-05T19:39"
+      "dep": "2027-04-02T16:53",
+      "arr": "2027-04-02T19:39"
      }
     ],
-    "wait_h": 19.6
+    "wait_h": 10.1
    },
    "back": {
     "legs": [
      {
-      "airline": "WN",
-      "flight": "WN3488",
+      "airline": "AA",
+      "flight": "AA4096",
       "from": "BWI",
       "to": "MIA",
-      "dep": "2027-04-13T18:45",
-      "arr": "2027-04-13T21:30"
+      "dep": "2027-04-10T19:16",
+      "arr": "2027-04-10T22:05"
      },
      {
       "airline": "LA",
       "flight": "LA543",
       "from": "MIA",
       "to": "EZE",
-      "dep": "2027-04-14T23:40",
-      "arr": "2027-04-15T09:40"
+      "dep": "2027-04-11T23:40",
+      "arr": "2027-04-12T09:40"
      }
     ],
-    "wait_h": 26.2
+    "wait_h": 25.6
    },
    "links": [
-    "https://www.google.com/travel/flights?q=Flights+from+EZE+to+MIA+on+2027-04-04+returning+2027-04-14&curr=USD",
-    "https://www.google.com/travel/flights?q=Flights+from+MIA+to+BWI+on+2027-04-05+one+way&curr=USD",
-    "https://www.google.com/travel/flights?q=Flights+from+BWI+to+MIA+on+2027-04-13+one+way&curr=USD"
+    "https://www.google.com/travel/flights?q=Flights+from+EZE+to+MIA+on+2027-04-01+returning+2027-04-11&curr=USD",
+    "https://www.google.com/travel/flights?q=Flights+from+MIA+to+BWI+on+2027-04-02+one+way&curr=USD",
+    "https://www.google.com/travel/flights?q=Flights+from+BWI+to+MIA+on+2027-04-10+one+way&curr=USD"
    ]
   }
  ],
@@ -2218,9 +2218,9 @@
  },
  "best_single": {
   "type": "single",
-  "dep": "2027-03-04",
+  "dep": "2027-03-02",
   "ret": "2027-03-14",
-  "price": 705.0,
+  "price": 704.0,
   "out": {
    "legs": [
     {
@@ -2228,16 +2228,16 @@
      "flight": "DL114",
      "from": "EZE",
      "to": "JFK",
-     "dep": "2027-03-04T20:05",
-     "arr": "2027-03-05T05:00"
+     "dep": "2027-03-02T20:05",
+     "arr": "2027-03-03T05:00"
     },
     {
      "airline": "DL",
      "flight": "DL5750",
      "from": "JFK",
      "to": "DCA",
-     "dep": "2027-03-05T08:55",
-     "arr": "2027-03-05T10:28"
+     "dep": "2027-03-03T08:55",
+     "arr": "2027-03-03T10:28"
     }
    ],
    "stops": 1,
@@ -2275,84 +2275,84 @@
   },
   "calendar_price": 684.0,
   "links": [
-   "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-04+returning+2027-03-14&curr=USD"
+   "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-02+returning+2027-03-14&curr=USD"
   ]
  },
  "best_split": {
   "type": "split",
   "hub": "MIA",
-  "dep": "2027-04-04",
-  "ret": "2027-04-14",
-  "price": 1147.0,
+  "dep": "2027-04-01",
+  "ret": "2027-04-11",
+  "price": 1347.0,
   "tickets": [
    {
     "label": "Origen ⇄ MIA (ida y vuelta)",
-    "price": 763.0
+    "price": 944.0
    },
    {
     "label": "MIA → Destino (solo ida)",
-    "price": 230.0
+    "price": 239.0
    },
    {
     "label": "Destino → MIA (solo ida)",
-    "price": 154.0
+    "price": 164.0
    }
   ],
   "out": {
    "legs": [
     {
-     "airline": "LA",
-     "flight": "LA542",
+     "airline": "AA",
+     "flight": "AA908",
      "from": "EZE",
      "to": "MIA",
-     "dep": "2027-04-04T13:10",
-     "arr": "2027-04-04T21:15"
+     "dep": "2027-04-01T22:20",
+     "arr": "2027-04-02T06:45"
     },
     {
      "airline": "F9",
      "flight": "F92940",
      "from": "MIA",
      "to": "BWI",
-     "dep": "2027-04-05T16:53",
-     "arr": "2027-04-05T19:39"
+     "dep": "2027-04-02T16:53",
+     "arr": "2027-04-02T19:39"
     }
    ],
-   "wait_h": 19.6
+   "wait_h": 10.1
   },
   "back": {
    "legs": [
     {
-     "airline": "WN",
-     "flight": "WN3488",
+     "airline": "AA",
+     "flight": "AA4096",
      "from": "BWI",
      "to": "MIA",
-     "dep": "2027-04-13T18:45",
-     "arr": "2027-04-13T21:30"
+     "dep": "2027-04-10T19:16",
+     "arr": "2027-04-10T22:05"
     },
     {
      "airline": "LA",
      "flight": "LA543",
      "from": "MIA",
      "to": "EZE",
-     "dep": "2027-04-14T23:40",
-     "arr": "2027-04-15T09:40"
+     "dep": "2027-04-11T23:40",
+     "arr": "2027-04-12T09:40"
     }
    ],
-   "wait_h": 26.2
+   "wait_h": 25.6
   },
   "links": [
-   "https://www.google.com/travel/flights?q=Flights+from+EZE+to+MIA+on+2027-04-04+returning+2027-04-14&curr=USD",
-   "https://www.google.com/travel/flights?q=Flights+from+MIA+to+BWI+on+2027-04-05+one+way&curr=USD",
-   "https://www.google.com/travel/flights?q=Flights+from+BWI+to+MIA+on+2027-04-13+one+way&curr=USD"
+   "https://www.google.com/travel/flights?q=Flights+from+EZE+to+MIA+on+2027-04-01+returning+2027-04-11&curr=USD",
+   "https://www.google.com/travel/flights?q=Flights+from+MIA+to+BWI+on+2027-04-02+one+way&curr=USD",
+   "https://www.google.com/travel/flights?q=Flights+from+BWI+to+MIA+on+2027-04-10+one+way&curr=USD"
   ]
  },
- "split_saving": -442.0,
+ "split_saving": -643.0,
  "split_threshold": 150,
  "winner": {
   "type": "single",
-  "dep": "2027-03-04",
+  "dep": "2027-03-02",
   "ret": "2027-03-14",
-  "price": 705.0,
+  "price": 704.0,
   "out": {
    "legs": [
     {
@@ -2360,16 +2360,16 @@
      "flight": "DL114",
      "from": "EZE",
      "to": "JFK",
-     "dep": "2027-03-04T20:05",
-     "arr": "2027-03-05T05:00"
+     "dep": "2027-03-02T20:05",
+     "arr": "2027-03-03T05:00"
     },
     {
      "airline": "DL",
      "flight": "DL5750",
      "from": "JFK",
      "to": "DCA",
-     "dep": "2027-03-05T08:55",
-     "arr": "2027-03-05T10:28"
+     "dep": "2027-03-03T08:55",
+     "arr": "2027-03-03T10:28"
     }
    ],
    "stops": 1,
@@ -2407,7 +2407,7 @@
   },
   "calendar_price": 684.0,
   "links": [
-   "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-04+returning+2027-03-14&curr=USD"
+   "https://www.google.com/travel/flights?q=Flights+from+EZE+to+IAD+on+2027-03-02+returning+2027-03-14&curr=USD"
   ]
  }
 }
