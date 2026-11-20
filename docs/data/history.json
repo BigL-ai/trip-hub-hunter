@@ -450,5 +450,21 @@
   "split_price": null,
   "split_hub": null,
   "by_hub": {}
+ },
+ {
+  "signal": "yellow",
+  "google_level": "alto",
+  "run_at": "2026-11-20T19:12+00:00",
+  "winner_price": 703.0,
+  "winner_label": "billete único",
+  "single_price": 703.0,
+  "split_price": 1014.0,
+  "split_hub": "MIA",
+  "by_hub": {
+   "MIA": 1014.0,
+   "NYC": 1307.0,
+   "ATL": 2144.0,
+   "PTY": 2406.0
+  }
  }
 ]
