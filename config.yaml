@@ -33,13 +33,15 @@ split:                               # Modalidad combinada / hub-hopping
   max_connection_hours: 28           # hasta 1 noche de stopover voluntario
   hubs:                              # cada tramo debe ser DIRECTO (el hub ya es la escala)
     MIA: [MIA]
-    FLL: [FLL]
-    MCO: [MCO]
-    ATL: [ATL]
-    NYC: [JFK, EWR]
-    PTY: [PTY]
-    BOG: [BOG]
-    MDE: [MDE]
+    # Desactivados el 24/11/2026: en 6 semanas siempre USD 300–500 más caros que el billete único
+    # y Google frena casi todas sus búsquedas. Para reactivar, descomentar.
+    # FLL: [FLL]
+    # MCO: [MCO]
+    # ATL: [ATL]
+    # NYC: [JFK, EWR]
+    # PTY: [PTY]
+    # BOG: [BOG]
+    # MDE: [MDE]
 
 search:
   currency: USD
