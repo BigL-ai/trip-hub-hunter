@@ -10,6 +10,11 @@ on:
 permissions:
   contents: write             # necesario para commitear docs/data/*.json
 
+# Una corrida a la vez: si se superponen (manual + programada), Google frena a las dos.
+concurrency:
+  group: daily-hunt
+  cancel-in-progress: false
+
 jobs:
   hunt:
     runs-on: ubuntu-latest
