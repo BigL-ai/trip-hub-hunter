@@ -527,12 +527,12 @@
   "by_hub": {}
  },
  {
-  "signal": "green",
+  "signal": "yellow",
   "google_level": "alto",
-  "run_at": "2026-11-27T19:25+00:00",
-  "winner_price": 694.0,
+  "run_at": "2026-11-27T19:56+00:00",
+  "winner_price": 872.0,
   "winner_label": "billete único",
-  "single_price": 694.0,
+  "single_price": 872.0,
   "split_price": null,
   "split_hub": null,
   "by_hub": {}
